@@ -1,0 +1,4290 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh" lang="zh">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+  <title>Web内容无障碍指南(WCAG)2.1</title><!--Chinese Text-->
+  <link media="print" type="text/css" rel="stylesheet" href="http://www.w3.org/TR/WCAG20/print.css" />
+  <link rel="stylesheet" type="text/css" href="http://www.w3.org/TR/WCAG20/additional.css" />
+  <link rel="stylesheet" type="text/css" href="http://www.w3.org/StyleSheets/TR/W3C-REC" />
+  <style id="clearly_highlighting_css" type="text/css">
+</style>
+  <style type="text/css">
+/*<![CDATA[*/
+  div.transheader {display: block;
+  border: solid #ccccbb; padding: 2%;
+  background: #eeeedd ;}
+  .transtitle {color: #555555;
+  background: #eeeedd ;
+  font-weight: bolder;}
+  .divcss1{ text-align:center}
+  .new {border: medium solid #008000;}
+  dt.new {
+    border-bottom: none;
+        border-bottom-width: medium;
+        border-bottom-style: none;
+        border-bottom-color: currentcolor;
+	}
+  span.new{border: medium solid #008000;}
+  /*]]>*/
+  </style>
+</head>
+
+<body>
+  <p align="center">[<a href="#contents">目录</a>]</p>
+
+  <p><a href="http://www.w3.org/" hreflang="en"><img alt="W3C" src="http://www.w3.org/Icons/w3c_home" width="72" height=
+  "48" /></a></p>
+
+  <div class="transheader">
+    <h1 class="transtitle"><span xml:lang="en" lang="en">Web Content Accessibility Guidelines (WCAG) 2.1</span></h1>
+
+    
+
+
+    
+
+
+    
+  <h2 class="transtitle">非正式中文翻译</h2>
+  <h2 class="transtitle">2017年10月10日</h2>
+    
+  <!--Date of publication [of the authorized translation]-->
+  <dl>
+    <dt><strong>此版本:</strong></dt>
+    <dd> <a href=
+        " "></a> 
+    </dd>
+    <dt><strong>最新版本:</strong></dt>
+    <dd> <a href=" /"></a> 
+    </dd>
+    
+    <dt><strong>参与翻译组织及个人：</strong></dt>
+    <dd> W3C北航, <a href="http://www.chinaw3c.org">http://www.chinaw3c.org</a> 
+    </dd>
+    <dd> 浙江大学, <a href="http://http://www.zju.edu.cn/">http://www.zju.edu.cn/</a> 
+    <dd> 王炜, <a href="http://http://www.zju.edu.cn/">浙江大学</a> 
+    </dd>
+    <dd> 冉若曦, <a href="http://http://www.zju.edu.cn/">W3C北航/</a> 
+    </dd>
+
+    
+  <p>此版本为非正式W3C文档。如有任何争议，应以原始英文版本为权威版本。</p>
+
+  </div>
+
+  <div class="head">
+    
+    
+  <h1><a id="title" name="title"></a>Web内容无障碍指南 (<span xml:lang="en" lang="en">WCAG</span>) 
+    2.1</h1>
+    <h2><a id="w3c-doctype" name="w3c-doctype"></a>W3C非正式文档 2017年10月11日</h2>
+  </div>
+  <hr />
+
+  <div>
+    <h2><a id="abstract" name="abstract"></a>说明</h2>
+
+    
+  <p>该翻译版本为Web内容无障碍指南（<span xml:lang="en" lang="en">WCAG</span>）2.1工作稿的非正式翻译版本，由于WCAG 2.1是对WCAG 2.0的延伸开发，其中包含了所有WCAG2.0原有的准则和成功标准，为了区分新增加的准则和成功标准，在该工作稿中用<span class="new">绿色方框</span>标注了新增加的准则和成功标准，该版本并非WCAG 2.1最终的发布版本，目前工作组仍在对新的成功标准进行评估和审查，所以该版本并非稳定的版本，具体的变动将会在下一版本中更新。</p>
+
+    
+  </div>
+
+
+  <div class="toc">
+    <hr />
+
+    <h2><a id="contents" name="contents"></a>目录</h2>
+
+    
+  <ul class="toc">
+    <li> <a href="#intro">导言</a> 
+      <ul class="toc">
+        <li> <a href="#intro-layers-guidance"><span xml:lang="en" lang="en">WCAG</span>2.1指南结构</a> 
+        </li>
+        <li> <a href="#intro-related-docs"><span xml:lang="en" lang="en">WCAG</span>2.1支持文档</a> 
+        </li>
+        <li> <a href="#new-terms"><span xml:lang="en" lang="en">WCAG</span>2.1重要术语</a> 
+        </li>
+      </ul>
+    </li>
+    <li> <a href="#guidelines"><span xml:lang="en" lang="en">WCAG</span>2.1指南</a> 
+      <ul class="toc">
+        <li> <a href="#perceivable">1 可感知性</a> 
+          <ul class="toc">
+            <li>1.1 <a href="#text-equiv">为所有非文本内容提供替代文本，使其可以转化为人们需要的其他形式，如大字体印刷、盲文、语音、符号或更简单的语言。</a> 
+            </li>
+            <li>1.2 <a href="#media-equiv">为时基媒体提供替代。</a> </li>
+            <li>1.3 <a href=
+              "#content-structure-separation">创建可用不同方式呈现的内容（例如简单的布局），而不会丢失信息或结构。</a> 
+            </li>
+            <li>1.4 <a href=
+              "#visual-audio-contrast">使用户更容易看到和听到内容，包括把背景和前景分开。</a> </li>
+          </ul>
+        </li>
+        <li> <a href="#operable">2 可操作性</a> 
+          <ul class="toc">
+            <li>2.1 <a href="#keyboard-operation">使所有功能都能通过键盘来操作。</a> </li>
+            <li>2.2 <a href="#time-limits">为用户提供足够的时间用以阅读和使用内容。</a> </li>
+            <li>2.3 <a href="#seizure">不要设计会导致癫痫发作的内容。</a> </li>
+            <li>2.4 <a href=
+              "#navigation-mechanisms">提供帮助用户导航、查找内容、并确定其位置的方法。</a> </li>
+          </ul>
+        </li>
+        <li> <a href="#understandable">3 可理解性</a> 
+          <ul class="toc">
+            <li>3.1 <a href="#meaning">使文本内容可读，可理解。</a> </li>
+            <li>3.2 <a href="#consistent-behavior">让网页以可预见的方式呈现和操作。</a> </li>
+            <li>3.3 <a href="#minimize-error">帮助用户避免和纠正错误。</a> </li>
+          </ul>
+        </li>
+        <li> <a href="#robust">4 鲁棒性</a> 
+          <ul class="toc">
+            <li>4.1 <a href="#ensure-compat">最大化兼容当前和未来的用户代理(包括辅助技术)。</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li> <a href="#conformance">一致性</a> 
+      <ul class="toc">
+        <li> <a href="#conformance-reqs">一致性要求</a> </li>
+        <li> <a href="#conformance-claims">一致性声明（可选）</a> </li>
+        <li> <a href="#conformance-partial">部分一致性声明-第三方内容</a> </li>
+        <li> <a href="#conformance-partial-lang">部分一致性声明-语言</a> </li>
+      </ul>
+    </li>
+  </ul>
+
+    <h3><a id="appendices" name="appendices"></a>附录</h3>
+
+    <ul class="toc">
+      
+    <li>附录A：<a href="#glossary">词汇</a> （规范） </li>
+
+      <li>附录B：<a href="#acknowledgments">致谢</a>
+      </li>
+
+      <li>附录C：<a href="#references">参考文献</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="front">
+    <div class="div1">
+      <hr />
+
+      <h2><a id="intro" name="intro"></a>导言</h2>
+
+      
+    <p>本节为<a class="termref" title="定义：告知性" href="#informativedef">告知性</a>部分。</p>
+
+      
+    <p>Web无障碍指南（<span xml:lang="en" lang=
+      "en">WCAG</span>）2.1定义了如何使残障人士更方便地使用Web内容的方法。无障碍涉及广泛的残疾类别，包括视觉、听觉、身体、语言、认知、语言、学习以及神经残疾。尽管这些指南内容广泛，但它无法满足所有类型、程度和多重残疾人群的需要。这些指南也适合老年人上网，还可让普通用户更好的使用。</p>
+
+      <p>
+      Web无障碍不仅取决于访问的内容，而且也取决于Web浏览器和其他用户代理。创建工具对Web无障碍来说也很重要。对于如何使网页开发和交互组件协调工作的概况，请参见：</p>
+
+      <ul>
+        <li>
+          <p><strong><a href="http://www.w3.org/WAI/intro/components" hreflang=
+          "en">网页无障碍的主要组成部分</a></strong></p>
+        </li>
+
+        <li>
+          <p><strong><a href="http://www.w3.org/WAI/intro/uaag.php" hreflang=
+          "en">用户代理无障碍指南（UAAG）概述</a></strong></p>
+        </li>
+
+        <li>
+          <p><strong><a href="http://www.w3.org/WAI/intro/atag.php" hreflang=
+          "en">创建工具无障碍指南（ATAG）概述</a></strong></p>
+        </li>
+      </ul>
+
+      <div class="div2">
+        <h3><a id="intro-layers-guidance" name="intro-layers-guidance"></a><span xml:lang="en" lang="en">WCAG</span>
+        2.1指南结构</h3>
+
+        
+      <p>使用<span xml:lang="en" lang=
+        "en">WCAG</span>的个人和组织差别很大，包括Web设计者和开发者，政策制定者，采购人员，教师和学生。为了满足这些人员的不同需求，指南架构提供了包括整体<em>原则</em>，<em>一般准则</em>，可测试<em>成功标准</em>，<em>充分性技巧</em>和<em>建议性技巧</em>，并为记录在案的<em>常见错误</em>提供了丰富的例子，资源链接及代码。</p>
+
+        
+      <ul>
+        <li> 
+          <p><strong>原则</strong> - 首先是四大原则，它提供了Web无障碍的基础： <em>可感知性，可操作性，可理解性和鲁棒性</em>。参见<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/intro.html#introduction-fourprincs-head" hreflang=
+            "en">理解无障碍四项原则</a>。</p>
+        </li>
+        <li> 
+          <p><strong>准则</strong> - 原则之下是准则。提供的12项准则是为了达到这样一个基本目标：作者应努力使内容更容易让不同症状的残障用户能够访问。该准则是不可测试的，但提供了框架和总体目标，以帮助作者了解成功标准和更好地实现该技巧。</p>
+        </li>
+        <li> 
+          <p><strong>成功标准</strong> - 对每一个准则，提供了可测试的成功标准，以允许<span xml:lang=
+            "en" lang="en">WCAG</span> 2.1被用在需要进行需求和一致性测试的地方，例如设计规范，采购，管理，合同协议。为了满足不同的群体和不同的情况，我们定义了一致性的三个级别：A（最低），AA，AAA级（最高）。关于<span xml:lang="en"
+            lang="en">WCAG</span>级别的信息可在<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-levels-head" hreflang=
+            "en">理解一致性级别</a>里找到。</p>
+        </li>
+        <li> 
+          <p><strong>充分性技巧和建议性技巧</strong> - 对于<span xml:lang="en" lang="en">WCAG</span> 
+            2.1文件里每条 <em>准则</em>和 <em>成功标准</em>，工作组也说明了范围广泛的各种<em>技巧</em>。该技巧为告知性的，且分为两类： 
+            <em>充分</em>达到成功标准的技巧和 <em>建议性</em>技巧。建议性技巧已超越了独立的成功标准的范围，让作者更好地理解准则。一些建议性技巧解决了一些障碍，这些障碍在可测试的成功标准里没有覆盖到。凡是已知的常见错误，都已记录在案。</p>
+        </li>
+      </ul>
+
+        
+      <p> 指南的所有层次（原则、准则、成功标准、以及充分性技巧和建议性技巧）能够协调工作，以提供使内容更易于访问的指南。鼓励作者浏览和应用他们能用上的层次，包括建议性技巧，以尽可能更好地满足用户的广泛需求。</p>
+
+        
+      <p> 请注意，即使是符合最高级别（AAA级）的内容也不能保证被所有类型、程度或多重残疾的人群，特别是有语言、认知、学习障碍的人群访问。鼓励作者考虑各种技巧，包括建议性技巧，以及借鉴关于当前最佳的应用，以确保Web内容可以被访问，尽可能达到社会无障碍。 
+        <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/appendixC.html#understanding-metadata">元数据</a>可以协助用户寻找最适合他们的内容。</p>
+      </div>
+
+      <div class="div2">
+        <h3><a id="intro-related-docs" name="intro-related-docs"></a><span xml:lang="en" lang="en">WCAG</span> 2.1支持文档</h3>
+
+        <p><span xml:lang="en" lang="en">WCAG</span>
+        2.1文档旨在满足需要稳定的，可参考的技术标准的人群。被称为支持文档的其他文档以<span xml:lang="en"
+        lang="en">WCAG</span>
+        2.1文档为基础，可用于其他重要的用途，包括可进行更新的能力，以说明如何将<span xml:lang=
+        "en" lang="en">WCAG</span>用于新技术的应用。支持文档包括：</p>
+
+        
+      <ol class="enumar">
+        <li> 
+          <p><strong><a href="" hreflang="en">如何符合(TBD)<span xml:lang="en" lang=
+            "en">WCAG</span> 2.1</a></strong> - <span xml:lang="en" lang="en">WCAG</span> 
+            2.1的可定制的快速参考，包括所有的指南、成功标准以及作者正在开发和评估网页内容时可用到的技巧。</p>
+        </li>
+        <li> 
+          <p><strong><a href="/" hreflang="en">理解<span xml:lang="en" lang=
+            "en">WCAG</span> 2.1(TBD)</a></strong> - 理解和实施<span xml:lang="en" lang="en">WCAG</span> 
+            2.1的指南。对于<span xml:lang="en" lang="en">WCAG</span> 2.1的每一个准则和成功标准，这些主要议题都有一个简短的“理解”文档。</p>
+        </li>
+
+      </ol>
+
+        
+      <p>参见<a href="http://www.w3.org/WAI/intro/wcag.php" hreflang="en">Web内容无障碍指南（<span xml:lang="en"
+        lang="en">WCAG</span>）概述</a>里关于<span xml:lang="en" lang="en">WCAG</span> 
+        2.0支持材料的描述，包括<span xml:lang="en" lang="en">WCAG</span> 2.0相关的教育资源。<span>附加资源包括了以下主题，Web无障碍商业案例，改善网站无障碍的规划实施，和无障碍政策。这些资源都已在<a href="http://www.w3.org/WAI/Resources/Overview" hreflang="en">WAI资源</a>里列出。</span></p>
+      </div>
+
+      <div class="div2">
+        <h3><a id="new-terms" name="new-terms"></a><span xml:lang="en" lang="en">WCAG</span> 2.1重要术语</h3>
+
+        
+      <p><span xml:lang="en" lang="en">WCAG</span> 2.1包括三个重要术语。以下给出这些术语的简要介绍，更完整的定义请见词汇表。</p>
+
+        <dl>
+          <dt class="label">网页</dt>
+
+          <dd>
+            <p>需要指出的是，在这个标准中，术语“<a class="termref" title="定义：网页" href=
+            "#webpagedef">网页</a>”不仅仅包括静态HTML网页，它还包括网络上越来越多的动态网页，也包括呈现整个虚拟互动社区的“网页”。例如，术语“网页”包括了某单一URI上像电影那样令人身临其境的交互式体验。有关更多信息，请参阅<a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-web-page-head"
+            hreflang="en">理解“网页”</a>。</p>
+          </dd>
+
+          <dt class="label">编程式确定</dt>
+
+          <dd>
+            
+          <p>几个成功标准要求内容（或某些方面的内容）是“<a class="termref" title=
+            "定义：编程式确定 (可程序检测)" href="#programmaticallydetermineddef">编程式确定</a>“的。这意味着内容可采用这样一个方式来生成，即<a class="termref" title="定义：用户代理" href=
+            "#useragentdef">用户代理</a>(包括<a class="termref" title="定义：辅助技术 (本文档中使用)" href=
+            "#atdef">辅助技术</a>)可以以不同形式提取和呈现信息给用户。有关更多信息，请参阅<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-programmatically-determined-head" hreflang=
+            "en">理解编程式确定</a>。</p>
+          </dd>
+
+          <dt class="label">支持无障碍</dt>
+
+          <dd>
+            
+          <p> 以支持无障碍的方式使用技术，是指可与辅助技术（AT）和操作系统的无障碍特性、浏览器和其他用户代理协同工作。如果要以<a class="termref"
+            title="定义：支持无障碍" href=
+            "#accessibility-supporteddef">支持无障碍</a>的方式使用技术特性，技术特性只能是<a class="termref"
+            title="定义：可信(技术上)" href="#reliedupondef">可信</a>的，且足以符合<span xml:lang="en" lang=
+            "en">WCAG</span> 2.0的成功标准。也能以不支持无障碍的方式使用技术特性（比如不使用辅助技术等），只要他们不可信到不足以符合任何成功标准（比如可以另一种方式支持相同的信息或功能）。</p>
+
+            <p>本指南<a href="#glossary">附录A词汇</a>
+            部分也给出支持无障碍的定义。有关更多信息，请参阅<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-accessibility-support-head" hreflang=
+            "en">理解支持无障碍</a>。</p>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="div1">
+      <h2><a id="guidelines" name="guidelines"></a><span xml:lang="en" lang="en">WCAG</span> 2.1指南</h2>
+
+      <p>本节为 <a class="termref" title="定义：规范" href="#normativedef">规范</a>部分。</p>
+
+      <div class="div2">
+        <h2 class="principle"><a id="perceivable" name=
+        "perceivable"></a>原则1：可感知性-信息和用户界面组件必须以可感知的方式呈现给用户。</h2>
+
+        <div class="div3">
+          <div class="guideline">
+            
+          <h3><a id="text-equiv" name=
+            "text-equiv"></a>准则1.1替代文本：为所有非文本内容提供替代文本，使其可以转化为人们需要的其他形式，如大字体印刷，盲文，语音，符号或更简单的语言。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv.html" hreflang=
+            "en">理解准则1.1</a></p>
+          </div>
+
+          <div class="req">
+            <div id="text-equiv-all" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">1.1.1 非文本内容：</strong>为所有呈现给用户的<a class=
+                "termref" title="定义：非文本内容" href="#non-text-contentdef">非文本内容</a>都提供相同目的<a class=
+                "termref" title="定义：替代文本" href=
+                "#text-altdef">替代文本</a>，以下情况例外： （A级）</p>
+
+                
+              <ul>
+                <li> 
+                  <p><strong class="sc-handle">控件，输入:</strong> 如果非文本内容是一个控件或接受用户输入，则应有一个描述其目的<a class="termref" title=
+                    "定义：name" href="#namedef">名称</a>。（请参阅<a href=
+                    "#ensure-compat-rsv">准则4.1.2</a>，以了解关于控件和接受用户输入的内容的额外要求）</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">时基媒体:</strong> 如果非文本内容是时基媒体，这时替代文本至少要提供非文本内容的描述标识。（请参阅<a href="#media-equiv">准则 
+                    1.2</a>，以了解关于媒体的额外要求）</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">测试:</strong> 如果非文本内容是以一个以<a class=
+                    "termref" title="定义：文本" href=
+                    "#textdef">文本</a>呈现会失效的测试或练习，则替代文本至少要提供非文本内容的描述标识。</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">感官:</strong> 如果非文本内容的主要目的是创建一种<a class=
+                    "termref" title="定义：特殊感官体验" href=
+                    "#sensoryexpdef">特殊感官体验</a>，则替代文本至少要提供非文本内容的描述标识。</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle"><a class="termref" title="定义：CAPTCHA" href=
+                    "#CAPTCHAdef">验证码</a>: </strong>如果非文本内容的目的是为了确认内容正在被一个人访问，而不是计算机访问，则要提供识别和描述非文本内容目的的替代文本，并提供适应针对不同类型感官知觉的输出模型的验证码替代方式， 
+                    以适应不同的残障人群。</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">装饰，格式，不可见:</strong> 如果非文本内容是<a class=
+                    "termref" title="定义：纯粹的装饰" href="#puredecdef">纯粹的装饰</a>、或只用于视觉格式、或不呈现给用户，则应以<a class="termref"
+                    title="定义：辅助技术 (as used in this document)" href="#atdef">辅助技术</a>可忽略的方式进行实现。</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.1.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-text-equiv-all" hreflang="en">如何符合 1.1.1</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.1.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/text-equiv-all.html" hreflang="en">理解 1.1.1</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="media-equiv" name=
+            "media-equiv"></a>准则1.2时基媒体：为时基媒体提供替代。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv.html" hreflang=
+            "en">理解准则1.2</a></p>
+          </div>
+
+          <div class="req">
+            <div id="media-equiv-av-only-alt" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.1 纯音频和纯视频（预录）:</strong> 
+                对于<a class=
+                "termref" title="定义：预录" href="#prerecordeddef">预录</a>的<a class="termref" title=
+                "定义：纯音频" href="#audio-onlydef">纯音频</a>和预录的<a class="termref" title=
+                "定义：纯视频" href="#video-onlydef">纯视频</a>的媒体，以下情况为真，除非音频或视频就是<a class="termref" title=
+                "定义：文本的替代媒体" href="#multimedia-alt-textdef">文本的替代媒体</a> ，并已明确标记： 
+                （A级）</p>
+
+                <ul>
+                  <li>
+                    
+                  <p><strong class="sc-handle">预录的纯音频:</strong> 对于预录的纯音频内容，要给出<a class=
+                    "termref" title="定义：基于时间的媒体的替代" href=
+                    "#alt-time-based-mediadef">时基媒体的替代</a>，以呈现等同信息。</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong class="sc-handle">预录的纯视频：</strong> 对于预录的纯视频内容，要么给出时基媒体的替代，要么给出音轨，以呈现等同信息。</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-av-only-alt" hreflang="en">如何符合 1.2.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-av-only-alt.html" hreflang="en">理解 1.2.1</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-captions" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.2 字幕（预录）：</strong>要为<a class="termref" title=
+                "定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>里所有<a class="termref" title=
+                "定义：预录" href="#prerecordeddef">预录</a>音频内容提供<a class="termref" title=
+                "定义：字幕" href="#captionsdef">字幕</a>，除非此媒体就是<a class="termref" title=
+                "定义：文本的替代媒体" href=
+                "#multimedia-alt-textdef">文本的替代媒体</a>，并已明确标记。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-captions" hreflang="en">如何符合 1.2.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-captions.html" hreflang="en">理解 1.2.2</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-audio-desc" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.3 音频描述或媒体替代（预录）：</strong> 
+                要为<a class="termref" title="定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>提供<a class="termref" title="定义：时基媒体的替代" href=
+                "#alt-time-based-mediadef">时基媒体的替代</a>或<a class="termref" title="定义：预录" href=
+                "#prerecordeddef">预录</a>的<a class="termref" title="定义：视频" href="#videodef">视频</a> 
+                内容的<a class="termref" title="定义：音频描述" href=
+                "#audiodescdef">音频描述</a>，除非媒体就是<a class="termref" title="定义：文本的替代媒体"
+                href="#multimedia-alt-textdef">文本的替代媒体</a>，并已明确标记。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-audio-desc" hreflang="en">如何符合 1.2.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc.html" hreflang="en">理解 1.2.3</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="media-equiv-real-time-captions" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.4 字幕（直播）：</strong> 
+                要为<a class="termref" title=
+                "定义： 同步媒体" href="#synchronizedmediadef">同步媒体</a>里所有现场<a class="termref"
+                title="定义：直播" href="#livedef">直播</a>的<a class="termref" title="定义：音频" href=
+                "#audiodef">音频</a>内容提供<a class="termref" title="定义：字幕" href="#captionsdef">字幕</a> 
+                。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-real-time-captions" hreflang="en">如何符合 1.2.4</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-real-time-captions.html" hreflang="en">理解 1.2.4</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-audio-desc-only" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.5 音频描述（预录） :</strong> 
+                要为<a class="termref"
+                title="定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>里所有<a class="termref" title=
+                "定义：预录" href="#prerecordeddef">预录</a>的<a class="termref" title="定义：视频" href=
+                "#videodef">视频</a>内容提供<a class="termref" title="定义：音频描述" href=
+                "#audiodescdef">音频描述</a> 。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-audio-desc-only" hreflang="en">如何符合 1.2.5</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-audio-desc-only.html" hreflang="en">理解 1.2.5</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="media-equiv-sign" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.6 手语（预录）:</strong>要为<a class="termref" title=
+                "定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>里所有<a class="termref" title=
+                "定义：预录" href="#prerecordeddef">预录</a>的<a class="termref" title="定义：音频" href=
+                "#audiodef">音频</a>内容提供<a class="termref" title="定义：手语翻译" href=
+                "#sign-languageinterpdef">手语翻译</a> 。（AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.6" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-sign" hreflang="en">如何符合 1.2.6</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.6" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-sign.html" hreflang="en">理解 1.2.6</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-extended-ad" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.7 扩展音频描述（预录）：</strong> 
+                前景<a class="termref" title="定义：音频描述" href=
+                "#audiodescdef">音频描述</a>不足以传达视频意思时，可通过暂停，把<a class="termref" title=
+                "定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>里所有<a class="termref" title=
+                "定义：预录" href="#prerecordeddef">预录</a>的<a class="termref" title="定义：视频" href=
+                "#videodef">视频</a>内容<a class="termref" title="定义：扩展音频描述" href=
+                "#extended-addef">扩展音频描述</a>提供出来。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.7" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-extended-ad" hreflang="en">如何符合 1.2.7</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.7" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-extended-ad.html" hreflang="en">理解 1.2.7</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-text-doc" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.8 <strong class="sc-handle">替代</strong>媒体（预录） 
+                :</strong> 为所有<a class="termref" title="定义：预录" href="#prerecordeddef">预录</a>的<a class=
+                "termref" title="定义：同步媒体" href="#synchronizedmediadef">同步媒体</a>和所有预录的<a class=
+                "termref" title="定义：纯视频" href="#video-onlydef">纯视频</a>媒体提供<a class="termref" title=
+                "定义：基于时间的媒体的替代" href="#alt-time-based-mediadef">时基媒体的替代</a>。 
+                （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.8" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-text-doc" hreflang="en">如何符合 1.2.8</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.8" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-text-doc.html" hreflang="en">理解 1.2.8</a></p>
+              </div>
+            </div>
+
+            <div id="media-equiv-live-audio-only" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.2.9 纯音频（直播）:</strong> 
+                要为现场<a class="termref"
+                title="定义：直播" href="#livedef">直播</a>的<a class="termref" title="定义：纯音频" href=
+                "#audio-onlydef">纯音频</a>内容提供<a class="termref" title="定义：时基媒体的替代" href=
+                "#alt-time-based-mediadef">时基媒体的替代</a>，以呈现等同信息。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.2.9" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-media-equiv-live-audio-only" hreflang="en">如何符合 1.2.9</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.2.9" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/media-equiv-live-audio-only.html" hreflang="en">理解 1.2.9</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            
+          <h3><a id="content-structure-separation" name=
+            "content-structure-separation"></a>准则1.3适应性：创建可用不同方式呈现的内容（例如简单的布局），而不会丢失信息或结构。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation.html" hreflang=
+            "en">理解准则1.3</a></p>
+          </div>
+
+          <div class="req">
+            <div id="content-structure-separation-programmatic" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.3.1 信息和关系:</strong> 
+                通过<a class="termref" title=
+                "定义：呈现" href="#presentationdef">呈现</a>传达的信息、<a class="termref" title=
+                "定义：结构" href="#structuredef">结构</a>和<a class="termref" title="定义：关系" href=
+                "#relationshipsdef">关系</a>，可以<a class="termref" title="定义：编程式确定 (可程序检测)" href=
+                "#programmaticallydetermineddef">编程式确定</a>或在文本中得到。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.3.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-programmatic" hreflang="en">如何符合
+                1.3.1</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.3.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-programmatic.html" hreflang="en">理解
+                1.3.1</a></p>
+              </div>
+            </div>
+
+            <div id="content-structure-separation-sequence" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">1.3.2 有含义的顺序:</strong> 
+                当呈现出来的内容其顺序影响其含义，可以通过<a class="termref" title=
+                "定义：编程式确定 (可程序检测)" href="#programmaticallydetermineddef">编程式确定</a>其<a class="termref" title="定义：正确的阅读顺序" href=
+                "#correct-reading-sequencedef">正确的阅读顺序</a> （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.3.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-sequence" hreflang="en">如何符合
+                1.3.2</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.3.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-sequence.html" hreflang="en">理解
+                1.3.2</a></p>
+              </div>
+            </div>
+
+            <div id="content-structure-separation-understanding" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.3.3 感官特性:</strong> 
+                用于理解内容和操作内容的指示，应该不完全依赖于组件的感官特性，如形状、大小、视觉位置、方向、或声音。 （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em> 请参考颜色相关的要求，参见<a href="#visual-audio-contrast">准则
+                  1.4</a>。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.3.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-content-structure-separation-understanding" hreflang="en">如何符合
+                1.3.3</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.3.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/content-structure-separation-understanding.html" hreflang="en">理解
+                1.3.3</a></p>
+              </div>
+            </div>
+
+            <div id="purpose-of-controls" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.3.4 操作目的:</strong> 
+                在使用标记语言实现的内容中，可以通过编程确定常规表单字段、常规按钮或控件、常规链接的常规名称。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.3.4" href=
+                " " hreflang="en">如何符合
+                1.3.4(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.3.4" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/purpose-of-controls.html" hreflang="en">理解
+                1.3.4</a></p>
+              </div>
+            </div>
+
+            <div id="contextual-information" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.3.5 上下文信息:</strong> 
+                在使用标记语言实现的内容中，控件、符号和区域的上下文信息可以使用公开词汇表以编程方式确定。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.3.5" href=
+                " " hreflang="en">如何符合
+                1.3.5(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.3.5" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/contextual-information.html" hreflang="en">理解
+                1.3.5</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          
+        <div class="guideline"> 
+          <h3><a id="visual-audio-contrast" name=
+            "visual-audio-contrast"></a>准则1.4可辨别性：使用户更容易看到和听到内容，包括把背景和前景分开。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast.html" hreflang=
+            "en">理解准则1.4</a></p>
+          </div>
+
+          <div class="req">
+            <div id="visual-audio-contrast-without-color" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.1 颜色用途:</strong> 
+                颜色并不是作为传达信息、表明动作、提示响应或区分视觉元素的唯一视觉手段。 （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em> 此成功标准专门解决颜色感知的问题。<a href=
+                  "#content-structure-separation">准则
+                  1.3</a>已覆盖其他形式的感知，包括编程式访问颜色和其他视觉呈现的编码。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-without-color" hreflang="en">如何符合
+                1.4.1</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-without-color.html" hreflang="en">理解
+                1.4.1</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-dis-audio" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">1.4.2 音频控制:</strong>如果网页音频自动播放超过3秒钟，提供一个<a class="termref" title=
+                "定义：机制" href="#mechanismdef">机制</a>用以暂停或停止音频，或者控制独立于全局系统音量的音频音量。 
+                （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>
+                  由于任何不符合此成功标准的内容可干扰用户使用整个页面的能力，所有网页内容（不论是否符合其他成功标准）必须符合这项成功标准。参见
+                  <a href="#cc5">一致性要求5：不干扰</a>。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-dis-audio" hreflang="en">如何符合 1.4.2</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-dis-audio.html" hreflang="en">理解 1.4.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="visual-audio-contrast-contrast" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.3 对比度（最小）:</strong> 
+                <a class="termref" title=
+                "定义：文本" href="#textdef">文本</a><span>的视觉呈现</span>以及<a class="termref" title=
+                "定义：文本图像" href="#images-of-textdef">文本图像</a>至少要有4.5:1的<a class="termref" title=
+                "定义：对比度" href="#contrast-ratiodef">对比度</a>，以下部分除外：（AA级）</p>
+
+                <ul>
+                  <li>
+                    
+                  <p><strong class="sc-handle">大文本:</strong> <a class="termref" title="定义：大号文本(文本)"
+                    href="#larger-scaledef">大号</a>文本以及大文本图像至少有3:1的对比度;</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong class="sc-handle">附属内容:</strong> 文本或文本图像是未激活的<a class="termref" title=
+                    "定义：用户界面组件" href=
+                    "#user-interface-componentdef">用户界面组件</a>部分，或者只是一个<a class="termref" title=
+                    "定义：纯粹的装饰" href=
+                    "#puredecdef">纯粹的装饰</a>，或者对任何人不可见，或者只是包含其他重要可视内容的图片一部分，此文本或文本图像没有对比要求。</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong class="sc-handle">商标:</strong> 文本作为标志或品牌名称的一部分，没有最低对比要求。</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-contrast" hreflang="en">如何符合 1.4.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html" hreflang="en">理解 1.4.3</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-scale" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.4 调整文本:</strong> 
+                除了<a class="termref" title=
+                "定义：字幕" href="#captionsdef">字幕</a>和<a class="termref" title="定义：文本图像" href=
+                "#images-of-textdef">文本图像</a>外，<a class="termref" title="定义：文本" href=
+                "#textdef">文本</a>大小不需要<a class="termref" title="定义：辅助技术 (本文档中使用)" href=
+                "#atdef">辅助技术</a>就可以放大至200%，且没有内容或功能损失。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-scale" hreflang="en">如何符合 1.4.4</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html" hreflang="en">理解 1.4.4</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-text-presentation" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.5 文本图像:</strong>如果正在使用的技术可以达到视觉效果，应使用<a class="termref" title=
+                "定义：文本" href="#textdef">文本</a>传达信息而不用<a class="termref" title=
+                "定义：文本图像" href="#images-of-textdef">文本图像</a>，以下部分除外：（AA级）</p>
+
+                <ul>
+                  <li>
+                    
+                  <p><strong>定制:</strong> 文本图像可根据用户要求进行<a class="termref" title=
+                    "定义：视觉定制化" href="#visually-customizeddef">视觉定制</a>;</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong>必需:</strong> 文本的特殊呈现对要传达的信息是<a class="termref" title=
+                    "定义：必需" href="#essentialdef">必需</a>的。</p>
+                  </li>
+                </ul>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>商标（文本作为标志或品牌名称的一部分）被认为是必需的。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-text-presentation" hreflang="en">如何符合
+                1.4.5</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-presentation.html" hreflang="en">理解
+                1.4.5</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="visual-audio-contrast7" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.6 对比度（加强）:</strong> 
+                <a class="termref" title=
+                "定义：文本" href="#textdef">文本</a><span>视觉呈现</span>以及<a class="termref" title=
+                "定义：文本图像" href="#images-of-textdef">文本图像</a>至少有7:1的<a class="termref" title=
+                "定义：对比度" href="#contrast-ratiodef">对比度</a>，以下部分除外：（AAA级）</p>
+
+                <ul>
+                  <li>
+                    
+                  <p><strong class="sc-handle">大文本:</strong> <a class="termref" title="定义：大号文本(文本)"
+                    href="#larger-scaledef">大号</a>文本以及大文本图像至少有 <span>4.</span>5:1的对比度;</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong class="sc-handle">附属内容:</strong> 文本或文本图像是未激活的<a class="termref" title=
+                    "定义：用户界面组件" href=
+                    "#user-interface-componentdef">用户界面组件</a>部分，或者只是一个<a class="termref" title=
+                    "定义：纯粹的装饰" href=
+                    "#puredecdef">纯粹的装饰</a>，或者对任何人不可见，或者只是包含其他重要可视内容的图片一部分，此文本或文本图像没有对比要求。</p>
+                  </li>
+
+                  <li>
+                    <p><strong class="sc-handle">商标:</strong>
+                    文本作为标志或品牌名称的一部分，没有最低对比要求。</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.6" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast7" hreflang="en">如何符合 1.4.6</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.6" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast7.html" hreflang="en">理解 1.4.6</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-noaudio" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.7 低背景音或无背景音:</strong> 
+                对于<a class=
+                "termref" title="定义：预录" href="#prerecordeddef">预录</a>的<a class="termref" title="定义：纯音频"
+                href="#audio-onlydef">纯音频</a>内容，（1）前景音频主要包含说话内容，（2）不是音频<a class=
+                "termref" title="定义：CAPTCHA" href=
+                "#CAPTCHAdef">验证码</a>或音频标志，以及（3）不发声，主要用音乐表达，如唱歌或说唱，以下部分至少有一为真：（AAA级）</p>
+
+                
+              <ul>
+                <li> 
+                  <p><strong class="sc-handle">无背景:</strong> 音频不包含背景声音。</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">关闭:</strong> 背景声音可以被关闭。</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">20分贝:</strong> 背景声音至少比前景说话内容低20分贝，持续仅一两秒的偶发性声音除外。</p>
+                  <div class="note"> 
+                    <p class="prefix">注: 根据 “分贝”的定义，满足这一要求的背景声音将比前景说话内容大约安静4倍。</p>
+                  </div>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.7" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-noaudio" hreflang="en">如何符合 1.4.7</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.7" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-noaudio.html" hreflang="en">理解 1.4.7</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-visual-presentation" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.8 视觉呈现:</strong> 
+                对于<a class="termref" title=
+                "定义：文本块" href="#blockstextdef">文本块</a>的视觉呈现，提供一个<a class="termref" title=
+                "定义：机制" href="#mechanismdef">机制</a>以实现以下目标：（AAA级）</p>
+
+                
+              <ol class="enumar">
+                <li> 
+                  <p>用户可以选择前景色和背景色。</p>
+                </li>
+                <li> 
+                  <p>宽度不超过80个字符或符号（如果是<acronym title=
+                    "Chinese, Japanese and Korean">中日韩字体</acronym>，不超过40个）。</p>
+                </li>
+                <li> 
+                  <p>文本不能调整（即左对齐和右对齐）。 </p>
+                </li>
+                <li> 
+                  <p>段落里的行间距（行隔）至少是1.5倍行距，段落间距至少比行间距大1.5倍。</p>
+                </li>
+                <li> 
+                  <p>不使用辅助技术可将文本大小放大200%，并且在<a class=
+                    "termref" title="定义：全屏窗口" href="#fullscreenwindowdef">全屏窗口</a>的情况下不需要用户水平滚动就可以阅读一行文本。</p>
+                </li>
+              </ol>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.8" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-visual-presentation" hreflang="en">如何符合
+                1.4.8</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.8" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-visual-presentation.html" hreflang="en">理解
+                1.4.8</a></p>
+              </div>
+            </div>
+
+            <div id="visual-audio-contrast-text-images" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.9 文本图像（没有例外）:</strong> 
+                <a class="termref" title=
+                "定义：文本图像" href="#images-of-textdef">文本图像</a>只能用于<a class="termref" title=
+                "定义：纯粹的装饰" href="#puredecdef">纯粹的装饰</a>或此<a class="termref" title=
+                "定义：文本" href="#textdef">文本</a>的特殊呈现对要传达的信息是<a class="termref" title=
+                "定义：必需" href="#essentialdef">必需</a>的。 （AAA级）</p>
+
+                <div class="note">
+                  
+                <p class="prefix"><em>注:</em> 商标（文本是一个标志或品牌名称的一部分）被认为是必需的。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.9" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-visual-audio-contrast-text-images" hreflang="en">如何符合 1.4.9</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.9" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-text-images.html" hreflang="en">理解
+                1.4.9</a></p>
+              </div>
+            </div>
+
+            <div id="zoom-content" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.10 内容缩放:</strong> 
+                除了部分内容需要使用二维布局以满足使用或意义，其他内容可以不需要在多个轴上滚动就将内容放大到320个CSS像素的等效宽度，而不会丢失内容或功能。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.10" href=
+                " " hreflang="en">如何符合 1.4.10(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.10" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/zoom-content.html" hreflang="en">理解
+                1.4.10</a></p>
+              </div>
+            </div>
+
+            <div id="graphics-contrast" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.11 图形对比度:</strong> 
+                文本图像的视觉呈现至少要有4.5:1的对比度，以下部分除外：（AA级）</p> 
+              <ul>
+                <li> 
+                  <p><strong>密集：</strong> 最小宽度和高度具有至少3个CSS像素的图像至少要有3:1的对比度；</p>
+                </li>
+                <li> 
+                  <p><strong>感官：</strong> 主要旨在创造视觉感官体验的非文本内容没有对比度要求;</p>
+                </li>
+                <li> 
+                  <p><strong>商标：</strong> 图像作为标志或品牌名称的一部分，没有最低对比要求; </p>
+                </li>
+                <li> 
+                  <p><strong>基本要素：</strong> 
+                  图像的特殊呈现对要传达的信息是必需的。</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.11" href=
+                "h" hreflang="en">如何符合
+                1.4.11(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.11" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/graphics-contrast.html" hreflang="en">理解
+                1.4.11</a></p>
+              </div>
+            </div>
+
+            <div id="ser-interface-component-contrast-minimum" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.12 用户界面组件对比:</strong> 
+                用户界面组件的基本视觉标识符至少有4.5：1的对比度，以下部分除外: （AA级）</p> 
+              <ul>
+                <li> 
+                  <p><strong>更密集：</strong> 
+                  对于必需的视觉识别符，至少要有3：1的对比度，其中最小宽度和高度至少为3个CSS像素;</p>
+                </li>
+                <li> 
+                  <p><strong>无效：</strong> 
+                  禁用或非活动用户界面组件;</p>
+                </li>
+                <li> 
+                  <p><strong>用户代理控制：</strong> 用户界面组件的颜色和任何相邻颜色由用户代理确定，不会被作者修改。 </p>
+                </li>
+                
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.12" href=
+                "h" hreflang="en">如何符合
+                1.4.12(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.12" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/user-interface-component-contrast-minimum.html" hreflang="en">理解
+                1.4.12</a></p>
+              </div>
+            </div>
+
+            <div id="adapting-text" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.13 适应文本大小:</strong> 
+                如果使用的技术允许用户代理调整文本的样式属性，那么通过调整以下所有内容，不会丢失基本内容或功能： （AA级）</p> 
+              <ul>
+                <li> 
+                  <p>线高（线间距）至少为字体大小的1.5倍;</p>
+                </li>
+                <li> 
+                  <p>段后间距至少是字体大小的2倍;;</p>
+                </li>
+                <li> 
+                  <p>字母间距（跟踪）至少为字体大小的0.12倍;</p>
+                </li>
+                <li> 
+                  <p>字间距至少为字体大小的0.16倍。</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.13" href=
+                " " hreflang="en">如何符合
+                1.4.13(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.13" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/adapting-text.html" hreflang="en">理解
+                1.4.13</a></p>
+              </div>
+            </div>
+
+            <div id="content-on-hover-or-focus" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">1.4.14 悬停或焦点内容:</strong> 
+                当用户界面组件接收到键盘焦点或指针悬停而导致内容变得可见时，以下部分为真： （AA级）</p> 
+             <ul>
+                <li> 
+                  <p><strong>可见触发器：</strong> 
+                  附加内容不会掩盖触发用户界面组件内的任何基本内容，或者附加内容可以由用户关闭或重新定位;</p>
+                </li>
+                <li> 
+                  <p><strong>悬停：</strong> 
+                  如果通过指针悬停触发附加内容，则当指针移动到该位置时该内容保持可见;</p>
+                </li>
+                <li> 
+                  <p><strong>焦点：</strong> 
+                  当触发的用户界面组件具有键盘焦点时，附加内容保持可见，除非用户关闭其他内容。 </p>
+                </li>
+                
+              </ul>
+              <p>例外：内容的视觉呈现由用户代理控制，不会被作者修改。</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 1.4.14" href=
+                " " hreflang="en">如何符合
+                1.4.14(TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 1.4.14" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/content-on-hover-or-focus.html" hreflang="en">理解
+                1.4.14</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="div2">
+        <h2 class="principle"><a id="operable" name=
+        "operable"></a>原则2：可操作性-用户界面组件和导航必须可操作。</h2>
+
+        <div class="div3">
+          
+        <div class="guideline"> 
+          <h3><a id="keyboard-operation" name=
+            "keyboard-operation"></a>准则2.1键盘可访问：使所有功能都能通过键盘来操作</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation.html" hreflang=
+            "en">理解准则 2.1</a></p>
+          </div>
+
+          <div class="req">
+            <div id="keyboard-operation-keyboard-operable" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.1.1 键盘:</strong> 内容的所有<a class="termref" title=
+                "定义：功能" href="#functiondef">功能</a>可通过<a class="termref" title="定义：键盘接口" href=
+                "#keybrd-interfacedef">键盘接口</a>实现操作并且没有对每次键击做特定时限要求，除非底层功能是依赖用户的移动路径并且不做为端点的输入方法。 
+                （A级）</p>
+
+                <div class="note">
+                  
+                <p class="prefix"><em>注1:</em> 这种例外涉及到底层功能，而非输入技巧。例如，使用手写来输入文本，这种输入技巧（手写）需要路径依赖式输入，但底层功能（文本输入）不需要这种输入技巧。</p>
+                <p class="prefix"><em>注2:</em> 不禁止也不应阻止提供鼠标输入或除键盘操作以外的其他输入方法。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.1.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-keyboard-operable" hreflang="en">如何符合
+                2.1.1</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.1.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-keyboard-operable.html" hreflang="en">理解
+                2.1.1</a></p>
+              </div>
+            </div>
+
+            <div id="keyboard-operation-trapping" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.1.2 无键盘陷阱:</strong> 
+                如果可使用<a class="termref" title=
+                "定义：键盘接口" href=
+                "#keybrd-interfacedef">键盘接口</a>能将焦点到移动到某网页组件上，那么可以只使用键盘接口操作也可以将焦点从当前组件移开，如果需要未修改的方向键或Tab键或其它标准退出方式以外的操作，要告知用户离开焦点的方法。 
+                （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>
+                  由于任何不符合此成功标准的内容可干扰用户使用整个页面的能力，网页上所有内容（无论是否满足其他成功标准）必须符合这个成功标准。参见
+                  <a href="#cc5">一致性要求5：不干涉</a>。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.1.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-trapping" hreflang="en">如何符合 2.1.2</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.1.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-trapping.html" hreflang="en">理解 2.1.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="keyboard-operation-all-funcs" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">2.1.3 键盘（没有例外）:</strong> 
+                内容的所有<a class=
+                "termref" title="定义：功能" href="#functiondef">功能</a>可通过<a class="termref" title=
+                "定义：键盘接口" href=
+                "#keybrd-interfacedef">键盘接口</a>实现操作并且没有对每次键击做特定时限要求。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.1.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-keyboard-operation-all-funcs" hreflang="en">如何符合 2.1.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.1.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/keyboard-operation-all-funcs.html" hreflang="en">理解2.1.3</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            
+          <h3><a id="time-limits" name=
+            "time-limits"></a>准则2.2充足的时间：为用户提供足够的时间用以阅读和使用内容。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits.html" hreflang="en">理解 准则
+            2.2</a></p>
+          </div>
+
+          <div class="req">
+            <div id="time-limits-required-behaviors" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.1 定时可调:</strong>对于由内容设置的每一个时间限制，以下部分至少有个一为真：（A级）</p>
+
+                
+              <ul>
+                <li> 
+                  <p><strong class="sc-handle">关闭:</strong> 允许用户达到时间期限之前，关闭时间限制；或</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">调整:</strong> 允许用户达到时间期限前，调整时间限制。调整范围要放宽，至少是默认设置长度的10倍；或</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">延长:</strong> 在超时之前向用户发出警告，并给用户至少20秒的时间，使用户可以通过简单的动作来延长时间（例如“按空格键”），并允许用户延长期限至少10次；或</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">实时特例:</strong> 时间限制是一个实时事件（例如拍卖）的必要部分，可能没有时间限制的替代方法；或</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">必需特例:</strong> 时间限制是<a class="termref" title="定义：必需"
+                    href="#essentialdef">必需</a>的，延长时限将导致行为失效；或</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">20小时特例:</strong> 时间限制超过20个小时。</p>
+                </li>
+              </ul>
+
+                <div class="note">
+                  
+                <p class="prefix"> <em>注：</em>此成功标准有助于确保用户可以在因时间限制导致内容或者上下文发生意外变化的情况下完成任务。此成功标准应结合<a href=
+                  "#consistent-behavior-receive-focus">成功标准3.2.1</a>来考虑，成功标准3.2.1对内容或上下文的变化做出限制。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-required-behaviors" hreflang="en">如何符合 2.2.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-required-behaviors.html" hreflang="en">理解 2.2.1</a></p>
+              </div>
+            </div>
+
+            <div id="time-limits-pause" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">2.2.2 暂停、停止、隐藏:</strong>对于运动、<a class=
+                "termref" title="定义：闪烁" href=
+                "#blinksdef">闪烁</a>、滚动或自动更新的信息，以下部分全部为真：（A级）</p>
+
+                
+              <ul>
+                <li> 
+                  <p><strong class="sc-handle">运动、闪烁、滚动:</strong> 任何运动、闪烁或滚动的信息（1）自动启动，（2）持续时间超过5秒钟，（3）与其他内容同时呈现。对于这些信息，提供一个机制可使用户<a class="termref"
+                    title="定义：暂停" href=
+                    "#pauseddef">暂停</a>，停止或隐藏，除非运动、闪烁、或滚动是某个行为的<a class="termref" title=
+                    "定义：必需" href="#essentialdef">必需</a>部分；</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">自动更新:</strong> 任何自动更新的信息（1）自动启动（2）与其他内容同时呈现。对于这些信息，提供一个机制可使用户暂停、停止、或隐藏，或控制更新的频率，除非自动更新是某个行为的必需部分。</p>
+                </li>
+              </ul>
+
+                <div class="note">
+                  
+                <p class="prefix"><em>注1:</em> 关于闪烁或闪光的内容要求，参见<a href=
+                  "#seizure">准则2.3</a>。</p>
+
+                  <p class="prefix"><em>注2:</em>
+                  由于任何不符合此成功标准的内容可干扰用户使用整个页面的能力，网页上所有内容（无论是否满足其他成功标准）必须符合这个成功标准。参见<a href="#cc5">一致性要求5：不干涉</a>。</p>
+
+                  <p class="prefix"><em>注3:</em>
+                  通过软件定期更新的内容，或者传输到用户代理的内容，不需要保留或呈现暂停启动和恢复呈现之间生成或收到的信息，因为这可能没有技术可行性，而且许多情况下可能会误导这样做。</p>
+
+                  <p class="prefix"><em>注4:</em> 发生在预载入阶段或类似情况下的动画,
+                  在该阶段如果没发生与用户交互的情况或没有指示进程，就可能让用户感到困惑，或导致他们认为内容被固定或被破坏，这点是很重要的。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-pause" hreflang="en">如何符合 2.2.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-pause.html" hreflang="en">理解 2.2.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="time-limits-no-exceptions" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.3 无定时:</strong>定时不是一个事件或内容呈现行为的<a class="termref" title="定义：必需" href=
+                "#essentialdef">必需</a>部分，非交互<a class="termref" title="定义：同步媒体" href=
+                "#synchronizedmediadef">同步媒体</a>和<a class="termref" title="定义：实时事件" href=
+                "#real-time-eventsdef">实时事件</a>除外。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-no-exceptions" hreflang="en">如何符合 2.2.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-no-exceptions.html" hreflang="en">理解2.2.3</a></p>
+              </div>
+            </div>
+
+            <div id="time-limits-postponed" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">2.2.4 中断:</strong> 中断可以由用户推迟或禁止，<a class=
+                "termref" title="定义：紧急" href="#emergencydef">紧急</a>中断除外。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-postponed" hreflang="en">如何符合 2.2.4</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-postponed.html" hreflang="en">理解 2.2.4</a></p>
+              </div>
+            </div>
+
+            <div id="time-limits-server-timeout" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.5 重新认证:</strong> 
+                当认证的会话到期时，重新验证后，用户的行为可以继续并且不丢失数据。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-time-limits-server-timeout" hreflang="en">如何符合 2.2.5</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/time-limits-server-timeout.html" hreflang="en">理解 2.2.5</a></p>
+              </div>
+            </div>
+
+            <div id="accessible-authentication" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.6 无障碍认证:</strong> 
+                依赖于召回或转录信息的认证过程的基本步骤，具有以下之一： （A级）</p> 
+             <ul>
+                <li> 
+                  <p>替代性的重要步骤，不依赖于召回和转录信息;</p>
+                </li>
+                <li> 
+                  <p>认证凭证复位过程，不依赖于召回和转录信息。</p>
+                </li>
+              </ul>
+              <p>例外：</p>
+              <ul>
+                <li> 
+                  <p>认证过程涉及用户易于访问的基本识别信息，例如姓名，地址，电子邮件地址和身份证明或社会保障号码; </p>
+                </li>
+                <li> 
+                  <p>这是由于法律要求而无法实现的。 </p>
+                </li>
+              </ul>              
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.6" href=
+                " " hreflang="en">如何符合
+                2.2.6 (TBD)</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.6" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/accessible-authentication.html" hreflang="en">理解
+                2.2.6</a></p>
+              </div>
+            </div>
+
+            <div id="interruptions-minimum" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.7 中断（最低）:</strong> 
+                一种机制可以容易地推迟和抑制内容的中断和变化，除非由用户启动或涉及紧急情况。（AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.7" href=
+                " " hreflang="en">如何符合 2.2.7(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.7" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/interruptions-minimum.html" hreflang="en">理解
+                2.2.7</a></p>
+              </div>
+            </div>
+
+            <div id="timeouts" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.8 超时:</strong> 
+                由于用户不活动会导致数据可能丢失，在进程开始时向用户发出不活动时长超时的警告，除非用户不活动时数据被保留至少24小时。（AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.8" href=
+                " " hreflang="en">如何符合 2.2.8(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.8" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/timeouts.html" hreflang="en">理解
+                2.2.8</a></p>
+              </div>
+            </div>
+
+            <div id="animation-from-interactions" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.2.9 动画交互:</strong> 对于由用户操作触发的非必需动画，有一种机制禁用动画但仍然执行操作。（AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.2.9" href=
+                " " hreflang="en">如何符合 2.2.9(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.2.9" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/animation-from-interactions.html" hreflang="en">理解
+                2.2.9</a></p>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="seizure" name="seizure"></a>准则2.3癫痫：不要设计会导致癫痫发作的内容。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure.html" hreflang="en">理解准则
+            2.3</a></p>
+          </div>
+
+          <div class="req">
+            <div id="seizure-does-not-violate" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.3.1 闪光三次或低于阈值:</strong> 
+                <a class="termref" title=
+                "定义：网页" href="#webpagedef">网页</a>不包含任何闪光超过3次/秒的内容，或<a class=
+                "termref" title="定义：闪光" href="#flash-def">闪光</a>低于<a class="termref" title=
+                "定义： 一般闪光和红色闪光阈值" href="#general-thresholddef">一般闪光和红色闪光阈值</a>。 
+                （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>
+                  由于任何不符合此成功标准的内容可干扰用户使用整个页面的能力，网页上所有的内容（无论是否满足其他成功标准）必须符合此成功标准。参见<a href="#cc5">一致性要求5：不干涉</a>。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.3.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-seizure-does-not-violate" hreflang="en">如何符合 2.3.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.3.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-does-not-violate.html" hreflang="en">理解 2.3.1</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="seizure-three-times" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">2.3.2 <strong class="sc-handle">闪光</strong>三次:</strong>
+                <a class="termref" title="定义：网页" href="#webpagedef">网页</a>不包含任何<a class="termref" title=
+                "定义：闪光" href="#flash-def">闪光</a>超过3次/秒的内容。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.3.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-seizure-three-times" hreflang="en">如何符合 2.3.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.3.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/seizure-three-times.html" hreflang="en">理解 2.3.2</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            
+          <h3><a id="navigation-mechanisms" name=
+            "navigation-mechanisms"></a>准则2.4可导航性：提供帮助用户导航、查找内容、并确定其位置的方法。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms.html" hreflang=
+            "en">理解 准则 2.4</a></p>
+          </div>
+
+          <div class="req">
+            <div id="navigation-mechanisms-skip" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.1 绕过模块:</strong>提供一种<a class="termref" title="定义：机制"
+                href="#mechanismdef">机制</a>以跳过在多个<a class="termref" title=
+                "定义：网页" href="#webpagedef">网页</a>中重复出现的内容模块。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-skip" hreflang="en">如何符合 2.4.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html" hreflang="en">理解 2.4.1</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-title" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">2.4.2 网页标题:</strong> <a class="termref" title="定义：网页"
+                href="#webpagedef">网页</a>提供标题，以描述主题或用途。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-title" hreflang="en">如何符合 2.4.2</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-title.html" hreflang="en">理解 2.4.2</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-focus-order" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">2.4.3 聚焦顺序:</strong> 
+                如果<a class="termref" title=
+                "定义：网页" href="#webpagedef">网页</a>可以<a class="termref" title="定义：顺序导航" href=
+                "#nav-seqdef">顺序导航</a>，并且导航顺序影响含义和操作，可聚焦的组件以保持其含义和可操作的顺序接受聚焦。 
+                （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-order" hreflang="en">如何符合 2.4.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-order.html" hreflang="en">理解
+                2.4.3</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-refs" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.4 链接目的（在上下文里）:</strong> 
+                <a class="termref"
+                title="定义：链接目的" href=
+                "#linkpurposedef">每个链接目的</a>的确定可通过：单独的链接文本，或者是链接文本联系其编程式确定的<a class="termref"
+                title="定义：程序化检测上下文" href=
+                "#pdlinkcontextdef">链接上下文</a>。除非链接的目的也会<a class="termref" title=
+                "定义: 困惑普通用户" href="#ambiguouslinkdef">困惑普通用户</a>。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-refs" hreflang="en">如何符合 2.4.4</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-refs.html" hreflang="en">理解 2.4.4</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="navigation-mechanisms-mult-loc" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.5 多种方法：</strong>用一种以上的方法在<a class=
+                "termref" title="定义：网页集" href="#set-of-web-pagesdef">网页集</a>里定位一个<a class="termref"
+                title="定义：网页" href="#webpagedef">网页</a>，除非网页是<a class="termref" title="定义：流程"
+                href="#processdef">流程</a>的结果或流程的某个步骤。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-mult-loc" hreflang="en">如何符合 2.4.5</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-mult-loc.html" hreflang="en">理解 2.4.5</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-descriptive" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.6 标题和标签:</strong> 
+                标题和<a class="termref" title=
+                "定义：标签" href="#labeldef">标签</a>说明主题或目的。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.6" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-descriptive" hreflang="en">如何符合 2.4.6</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.6" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-descriptive.html" hreflang="en">理解
+                2.4.6</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-focus-visible" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.7 焦点可见:</strong> 
+                任何键盘可操作的用户界面应有一套操作模式，在该模式里键盘焦点指示是可见的。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.7" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-focus-visible" hreflang="en">如何符合
+                2.4.7</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.7" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-focus-visible.html" hreflang="en">理解
+                2.4.7</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="navigation-mechanisms-location" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">2.4.8 定位:</strong><a class="termref" title="定义：网页集"
+                href="#set-of-web-pagesdef">网页集</a>里关于用户定位的信息是有效的。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.8" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-location" hreflang="en">如何符合 2.4.8</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.8" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-location.html" hreflang="en">理解 2.4.8</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-link" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.9 链接目的（只针对链接）:</strong> 
+                提供一个<a class=
+                "termref" title="定义：机制" href="#mechanismdef">机制</a>允许只从链接文本来识别每个连接目的。除非链接目的也会<a class="termref" title=
+                "定义：困惑普通用户" href="#ambiguouslinkdef">困惑普通用户</a>。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.9" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-link" hreflang="en">如何符合 2.4.9</a></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.9" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-link.html" hreflang="en">理解 2.4.9</a></p>
+              </div>
+            </div>
+
+            <div id="navigation-mechanisms-headings" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.10 章节标题:</strong> 
+                用<a class="termref" title="定义：章节"
+                href="#sectiondef">章节</a>标题（Section headings）组织内容。 （AAA级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注1:</em>
+                  一般情况下使用“标题”，标题包括名称以及其他为不同内容类型添加标题的方法。</p>
+
+                  <p class="prefix"><em>注2:</em> 此成功标准包含了关于创建网页的部分，而不是关于<a class=
+                  "termref" title="定义：用户界面组件" href=
+                  "#user-interface-componentdef">用户界面组件</a>的部分。用户界面组件的部分在<a href=
+                  "#ensure-compat-rsv">成功标准 4.1.2</a>里。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.10" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-navigation-mechanisms-headings" hreflang="en">如何符合 2.4.10</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.10" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-headings.html" hreflang="en">理解 2.4.10</a></p>
+              </div>
+            </div>
+
+            <div id="character-key-shortcuts" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.11 字符键盘快捷键:</strong> 
+              如果完全由一个或多个字符键组成的键盘快捷键是由内容实现的，则可以使用一种机制将其关闭或重新映射到使用至少一个非字符键的快捷方式。（A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.11" href=
+                " " hreflang="en">如何符合 2.4.11(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.11" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/character-key-shortcuts.html" hreflang="en">理解
+                2.4.11</a></p>
+              </div>
+            </div>
+
+            <div id="accessible-name" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.4.12 无障碍名称:</strong> 
+              如果活动控件具有可见标签，则控件的可访问名称包含可见标签的文本字符串。（A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.4.12" href=
+                " " hreflang="en">如何符合 2.4.12(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.4.12" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/accessible-name.html" hreflang="en">理解
+                2.4.12</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3 new" >
+          <div class="guideline">
+            <h3><a id="seizure" name="seizure"></a>准则2.5指针无障碍：让使用者更加简便的操作指针功能。</h3>
+          </div>
+
+          <div class="req">
+            <div id="pointer-gestures" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.5.1 指针手势:</strong> 
+                所有功能可以使用单个未定义的指针手势进行操作，除非多点或定时手势是必需的。 
+                （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.5.1" href=
+                " " hreflang="en">如何符合 2.5.1(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.5.1" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/pointer-gestures.html" hreflang="en">理解 2.5.1</a></p>
+              </div>
+            </div>
+        
+
+            <div id="concurrent-input-mechanisms" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.5.2 并发输入机制:</strong> 
+                Web内容不限制使用平台上可用的输入模式，除非为了确保内容的安全性而必须使用限制或尊重用户设置。（AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.5.2" href=
+                " " hreflang="en">如何符合 2.5.2(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.5.2" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/concurrent-input-mechanisms.html" hreflang="en">理解 2.5.2</a></p>
+              </div>
+            </div>
+
+            <div id="target-size" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.5.3 指针目标尺寸:</strong> 
+                指针输入的目标尺寸至少为44×44个CSS像素，以下情况除外：（AA级）</p>
+              <ul>
+                <li> 
+                  <p><strong class="sc-handle">可定制：</strong> 一种机制可用于改变目标的大小，而与页面放大级别无关;</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">等效：</strong> 可通过等同的链接或在同一页面上控制的目标至少要44×44个CSS像素;</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">页内：</strong> 目标是目的地在同一页面上的文本链接;</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">内联：</strong> 
+                  目标是一段文字;</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">分组：</strong> 超过五个组的目标至少有一个维度为44像素，另一个维度至少为22像素;</p>
+                </li>
+                <li> 
+                  <p><strong class="sc-handle">用户代理控制：</strong> 目标的外观由用户代理确定，不会被作者修改。</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.5.3" href=
+                " " hreflang="en">如何符合 2.5.3(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.5.3" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/target-size.html" hreflang="en">理解 2.5.3</a></p>
+              </div>
+            </div>
+
+            <div id="target-size-no-exception" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.5.4 指针目标尺寸（无例外）:</strong> 
+                指针输入的目标尺寸至少为44×44个CSS像素。（AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.5.4" href=
+                " " hreflang="en">如何符合 2.5.4(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.5.4" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/target-size-no-exception.html" hreflang="en">理解 2.5.4</a></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="div3 new" >
+          <div class="guideline">
+            <h3><a id="seizure" name="seizure"></a>准则2.6附加传感器输入：</h3>
+          </div>
+
+          <div class="req">
+            <div id="device-sensors" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.6.1 设备传感器:</strong> 
+                内容的所有功能可以在不需要特定的设备传感器信息的情况下操作，除非设备传感器对于功能是必需的，而不使用它将使活动无效。（A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.6.1" href=
+                " " hreflang="en">如何符合 2.6.1(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.6.1" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/device-sensors.html" hreflang="en">理解 2.6.1</a></p>
+              </div>
+            </div>
+        
+
+            <div id="orientation" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">2.6.2 定位:</strong> 
+                内容不被锁定到特定的显示方向，并且内容的功能可在所有显示方向上操作，除非显示方向对于使用内容至关重要。（AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 2.6.2" href=
+                " " hreflang="en">如何符合 2.6.2(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 2.6.2" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/orientation.html" hreflang="en">理解 2.6.2</a></p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="div2">
+        <h2 class="principle"><a id="understandable" name=
+        "understandable"></a>原则3：可理解性-信息和用户界面操作必须是可理解的。</h2>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="meaning" name="meaning"></a>准则3.1可读性：使文本内容可读，可理解。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning.html" hreflang="en">理解准则
+            3.1</a></p>
+          </div>
+
+          <div class="req">
+            <div id="meaning-doc-lang-id" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.1.1 网页语言:</strong> 
+                每个<a class="termref" title=
+                "定义：网页" href="#webpagedef">网页</a>的默认<a class="termref" title="定义：人类语言" href=
+                "#human-langdef">人类语言</a>可以<a class="termref" title="定义：程序式确定(可程序检测)" href=
+                "#programmaticallydetermineddef">编程式确定</a>。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-doc-lang-id" hreflang="en">如何符合 3.1.1</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-doc-lang-id.html" hreflang="en">理解 3.1.1</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="meaning-other-lang-id" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">3.1.2 局部语言:</strong>内容里每个段落或短语的<a class=
+                "termref" title="定义：人类语言" href="#human-langdef">人类语言</a>可以<a class="termref" title=
+                "定义：编程式确定(可程序检测)" href=
+                "#programmaticallydetermineddef">编程式确定</a>，除了文本中专有名词、术语、不确定语言的词汇、已经融入到本地语言的词语或短语。</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-other-lang-id" hreflang="en">如何符合 3.1.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-other-lang-id.html" hreflang="en">理解 3.1.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="meaning-idioms" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.1.3 特殊单词:</strong> 
+                若单词或短语被<a class="termref"
+                title="定义：特定或者有限制的方式使用" href=
+                "#unusual-restricteddef">特定或者有限制的方式使用</a>，包括<a class="termref" title=
+                "定义：成语" href="#idiomsdef">成语</a>和<a class="termref" title="定义：术语" href=
+                "#jargondef">术语</a>，则提供一个<a class="termref" title="定义：机制" href=
+                "#mechanismdef">机制</a>确定这些单词或短语的具体定义。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-idioms" hreflang="en">如何符合 3.1.3</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-idioms.html" hreflang="en">理解 3.1.3</a></p>
+              </div>
+            </div>
+
+            <div id="meaning-located" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.1.4 缩写:</strong>提供一个<a class="termref" title=
+                "定义：机制" href="#mechanismdef">机制</a>用于确定<a class="termref" title="定义：缩写" href=
+                "#abbreviationsdef">缩写</a>词的扩展形式或含义。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-located" hreflang="en">如何符合 3.1.4</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-located.html" hreflang="en">理解 3.1.4</a></p>
+              </div>
+            </div>
+
+            <div id="meaning-supplements" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">3.1.5 阅读水平:</strong> 
+                当文本中排除专有名词、标题，仍需要<a class=
+                "termref" title="定义：初中" href=
+                "#lowseceddef">初中教育水平</a>以上的阅读能力时，提供补充内容，或者提供不高于初中教育水平既能阅读的版本。（AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-supplements" hreflang="en">如何符合 3.1.5</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-supplements.html" hreflang="en">理解 3.1.5</a></p>
+              </div>
+            </div>
+
+            <div id="meaning-pronunciation" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.1.6 发音:</strong> 若单词没有发音就无法理解单词含义，则提供一个<a class="termref" title="定义：机制" href=
+                "#mechanismdef">机制</a>用于确定单词的具体发音。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.1.6" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-meaning-pronunciation" hreflang="en">如何符合 3.1.6</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.1.6" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/meaning-pronunciation.html" hreflang="en">理解 3.1.6</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="consistent-behavior" name="consistent-behavior"></a>准则3.2
+            可预测性：让网页以可预见的方式呈现和操作。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior.html" hreflang=
+            "en">理解 准则 3.2</a></p>
+          </div>
+
+          <div class="req">
+            <div id="consistent-behavior-receive-focus" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.2.1 焦点:</strong>当任何用户界面组件接收焦点时，不会引起<a class="termref" title="定义：上下文变化"
+                href="#context-changedef">上下文变化</a>。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-consistent-behavior-receive-focus" hreflang="en">如何符合 3.2.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-receive-focus.html" hreflang="en">理解
+                3.2.1</a></p>
+              </div>
+            </div>
+
+            <div id="consistent-behavior-unpredictable-change" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">3.2.2 输入:</strong>更改任何<a class="termref" title=
+                "定义：用户界面组件" href=
+                "#user-interface-componentdef">用户界面组件</a>设置不会自动导致<a class="termref" title=
+                "定义：上下文变化" href=
+                "#context-changedef">上下文变化</a>，除非用户使用组件前已被告知该行为。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-consistent-behavior-unpredictable-change" hreflang="en">如何符合
+                3.2.2</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-unpredictable-change.html" hreflang="en">理解
+                3.2.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="consistent-behavior-consistent-locations" class="sc">
+              
+            <div class="scinner"> 
+              <p class="sctxt"><strong class="sc-handle">3.2.3 一致性导航:</strong> 
+                对于在<a class="termref" title=
+                "定义：网页集" href="#set-of-web-pagesdef">网页集</a>里多个<a class="termref" title="定义：网页"
+                href="#webpagedef">网页</a>中重复出现的导航机制，每次出现时都应保持同样的相对顺序，除非是由用户引起的顺序变化。 
+                （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-consistent-behavior-consistent-locations" hreflang="en">如何符合
+                3.2.3</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-locations.html" hreflang="en">理解
+                3.2.3</a></p>
+              </div>
+            </div>
+
+            <div id="consistent-behavior-consistent-functionality" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.2.4 一致性标识:</strong> 
+                <a class="termref" title=
+                "定义：网页集" href="#set-of-web-pagesdef">网页集</a>集里<a class="termref" title="定义：相同功能" href=
+                "#samefunctionalitydef">相同功能</a>的组件可被一致性标识。 （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-consistent-behavior-consistent-functionality" hreflang="en">如何符合
+                3.2.4</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-consistent-functionality.html" hreflang="en">理解
+                3.2.4</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="consistent-behavior-no-extreme-changes-context" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.2.5 请求变化:</strong> 
+                <a class="termref" title=
+                "定义：上下文变化" href=
+                "#context-changedef">上下文变化</a>只能由用户请求来启动，或者提供一个可关闭这种变化的<a class="termref"
+                title="定义：机制" href="#mechanismdef">机制</a>。 （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-consistent-behavior-no-extreme-changes-context" hreflang=
+                "en">如何符合 3.2.5</a> <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/consistent-behavior-no-extreme-changes-context.html" hreflang=
+                "en">理解 3.2.5</a></p>
+              </div>
+            </div>
+
+            <div id="accidental-activation" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.2.6 意外激活:</strong> 
+                对于单指针激活，以下部分至少一项为真：（A级）</p>
+              <ul>
+                <li> 
+                  <p>激活是对事件的明确或隐含的平台的通用激活/点击事件;</p>
+                </li>
+                <li> 
+                  <p>提供一种机制，允许用户选择up-event作为选项;</p>
+                </li>
+                <li> 
+                  <p>提供确认，可以解除激活;</p>
+                </li>
+                <li> 
+                  <p>激活是可逆的.</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.6" href=
+                " " hreflang="en">如何符合 3.2.6(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.6" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/accidental-activation.html" hreflang="en">理解 3.2.6</a></p>
+              </div>
+            </div>
+
+            <div id="change-of-content" class="sc new">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.2.7 内容变化:</strong> 
+                对于表示用户采取的行动或传达信息的内容的每次更改都提供了程序化通知，除非以下一个或多个为真：（AA级）</p>
+              <ul>
+                <li> 
+                  <p>新内容与触发它的控件之间的关系可以编程确定;</p>
+                </li>
+                <li> 
+                  <p>用户提前被告知内容的更改或使用控件的结果;</p>
+                </li>
+                <li> 
+                  <p>内容的改变不是用户操作的结果，与页面的主要目的无关。</p>
+                </li>
+              </ul>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.2.7" href=
+                " " hreflang="en">如何符合 3.2.7(TBD)</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.2.7" href=
+                "https://www.w3.org/WAI/WCAG21/Understanding/21/change-of-content.html" hreflang="en">理解 3.2.7</a></p>
+              </div>
+            </div>
+
+
+
+
+          </div>
+        </div>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="minimize-error" name="minimize-error"></a>准则3.3辅助输入：帮助用户避免和纠正错误。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error.html" hreflang=
+            "en">理解准则 3.3</a></p>
+          </div>
+
+          <div class="req">
+            <div id="minimize-error-identified" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.1 错误标识:</strong> 
+                如果<a class="termref" title=
+                "定义：输入错误" href=
+                "#input-errordef">输入错误</a>能够被自动发现，错误类型应能被标识，并且用文本描述给用户。 （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-identified" hreflang="en">如何符合 3.3.1</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-identified.html" hreflang="en">理解 3.3.1</a></p>
+              </div>
+            </div>
+
+            <div id="minimize-error-cues" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.2 标签或说明:</strong> 
+                当需要用户输入内容时，要给出<a class="termref" title="定义：标签" href="#labeldef">标签</a>或说明。 
+                （A级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-cues" hreflang="en">如何符合 3.3.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-cues.html" hreflang="en">理解 3.3.2</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="bp">
+            <div id="minimize-error-suggestions" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.3 错误建议:</strong> 
+                如果<a class="termref" title=
+                "定义：输入错误" href=
+                "#input-errordef">输入错误</a>能够被自动发现，且修改建议已知，则提供建议给用户，除非它会危及安全或影响内容目的。 
+                （AA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.3" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-suggestions" hreflang="en">如何符合 3.3.3</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.3" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-suggestions.html" hreflang="en">理解 3.3.3</a></p>
+              </div>
+            </div>
+
+            <div id="minimize-error-reversible" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.4 错误预防（法律、金融、数据）:</strong> 
+                对于用户操作将引起<a class="termref" title="定义： 法律承诺" href=
+                "#legalcommitmentsdef">法律承诺</a>或者金融交易的网页、修改或删除数据存储系统里的<a class="termref"
+                title="定义：用户可控" href="#user-controllabledef">用户可控</a>数据的网页、提交用户测试响应的<a class="termref" title="定义：网页" href=
+                "#webpagedef">网页</a>等 ，对于这些网页，以下部分至少有一为真：（AA级）</p>
+
+                <ol class="enumar">
+                  <li>
+                    <p><strong class="sc-handle">可逆:</strong> 提交是可逆的。</p>
+                  </li>
+
+                  <li>
+                    <p><strong class="sc-handle">检查:</strong> 用户输入的数据将被检查是否有<a class="termref"
+                    title="定义：输入错误" href=
+                    "#input-errordef">输入错误</a>，并为用户提供一个改正错误的机会。</p>
+                  </li>
+
+                  <li>
+                    <p><strong class="sc-handle">确认:</strong> 提供一个<a class="termref" title="定义：机制" href=
+                    "#mechanismdef">机制</a>用于最后提交之前审查、确认和纠正信息。</p>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.4" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-reversible" hreflang="en">如何符合 3.3.4</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.4" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible.html" hreflang="en">理解 3.3.4</a></p>
+              </div>
+            </div>
+          </div>
+
+          <div class="additional">
+            <div id="minimize-error-context-help" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.5 帮助:</strong><a class="termref" title=
+                "定义：上下文相关的帮助" href="#context-sensitivehelpdef">上下文相关的帮助</a>是可用的。 
+                （AAA级）</p>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.5" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-context-help" hreflang="en">如何符合 3.3.5</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.5" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-context-help.html" hreflang="en">理解 3.3.5</a></p>
+              </div>
+            </div>
+
+            <div id="minimize-error-reversible-all" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">3.3.6 错误预防（全部）:</strong> 
+                对于要求用户提交信息的<a class="termref" title="定义：网页" href="#webpagedef">网页</a>，以下部分至少有一为真：（AAA级）</p>
+
+                <ol class="enumar">
+                  <li>
+                    <p><strong class="sc-handle">可逆:</strong> 提交是可逆的。</p>
+                  </li>
+
+                  <li>
+                    <p><strong class="sc-handle">检查:</strong> 用户输入的数据将被检查是否有<a class="termref"
+                    title="定义：输入错误" href=
+                    "#input-errordef">输入错误</a>，并为用户提供一个改正错误的机会。</p>
+                  </li>
+
+                  <li>
+                    
+                  <p><strong class="sc-handle">确认:</strong> 提供一个<a class="termref" title="定义：机制" href=
+                    "#mechanismdef">机制</a>用于最后提交之前审查、确认和纠正信息。</p>
+                  </li>
+                </ol>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 3.3.6" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-minimize-error-reversible-all" hreflang="en">如何符合 3.3.6</a>
+                <span class="screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 3.3.6" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/minimize-error-reversible-all.html" hreflang="en">理解 3.3.6</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="div2">
+        
+      <h2 class="principle"><a id="robust" name=
+        "robust"></a>原则4：鲁棒性-内容必须健壮到可信地被种类繁多的用户代理(包括辅助技术)所解释。</h2>
+
+        <div class="div3">
+          <div class="guideline">
+            <h3><a id="ensure-compat" name=
+            "ensure-compat"></a>准则4.1兼容：最大化兼容当前和未来的用户代理(包括辅助技术)。</h3>
+
+            <p class="und-gl-link"><a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat.html" hreflang=
+            "en">理解准则 4.1</a></p>
+          </div>
+
+          <div class="req">
+            <div id="ensure-compat-parses" class="sc">
+              <div class="scinner">
+                <p class="sctxt"><strong class="sc-handle">4.1.1
+                解析:</strong>使用标记语言实现的内容，元素要有完整的开始和结束标签，元素根据其规格进行嵌套，元素不包含重复的属性，任何ID都是唯一的，除非规范允许这些特性。
+                （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>
+                  缺少关键特性的开始和结束标签是不完整的，比如一个右尖括号或不匹配的属性值引用标记。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 4.1.1" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-parses" hreflang="en">如何符合 4.1.1</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 4.1.1" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-parses.html" hreflang="en">理解 4.1.1</a></p>
+              </div>
+            </div>
+
+            <div id="ensure-compat-rsv" class="sc">
+              <div class="scinner">
+                
+              <p class="sctxt"><strong class="sc-handle">4.1.2 名称，角色，值:</strong>对于所有<a class="termref"
+                title="定义：用户界面组件" href=
+                "#user-interface-componentdef">用户界面组件</a>（包括但不限于：表单元素，链接和由脚本生成的组件），<a class="termref"
+                title="定义：名称" href="#namedef">名称</a>和<a class="termref" title="定义： role" href=
+                "#roledef">角色</a>可以<a class="termref" title="定义：编程式确定 (可程序检测)" href=
+                "#programmaticallydetermineddef">编程式确定</a>; 可由用户设置的状态、属性和值可以<a class=
+                "termref" title="定义： 编程式设置" href=
+                "#programmaticallysetdef">编程式设置</a>，这些变化通知对<a class="termref" title=
+                "定义：用户代理" href="#useragentdef">用户代理</a>（包括<a class="termref" title=
+                "定义：辅助技术 (本文档中使用)" href="#atdef">辅助技术</a>）有效。 （A级）</p>
+
+                <div class="note">
+                  <p class="prefix"><em>注:</em>
+                  此成功标准主要用于Web作者开发或编写自己的用户界面组件。比如根据规范使用标准HTML控件时，标准HTML控件已经满足这一成功标准。</p>
+                </div>
+              </div>
+
+              <div class="doclinks">
+                <p class="supportlinks"><a class="HTMlink" title="如何符合 4.1.2" href=
+                "http://www.w3.org/WAI/WCAG20/quickref/#qr-ensure-compat-rsv" hreflang="en">如何符合 4.1.2</a> <span class=
+                "screenreader">|</span></p>
+
+                <p class="supportlinks"><a class="HTMlink" title="理解 4.1.2" href=
+                "http://www.w3.org/TR/UNDERSTANDING-WCAG20/ensure-compat-rsv.html" hreflang="en">理解 4.1.2</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="div1">
+      <h2><a id="conformance" name="conformance"></a>一致性</h2>
+
+      <p>本节为<a class="termref" title="定义： normative" href="#normativedef">规范</a>部分。</p>
+
+      
+    <p>本节列出了<span xml:lang="en" lang="en">WCAG</span> 2.0<a class="termref" title="定义： conformance" href=
+      "#conformancedef">一致性</a>要求。它还提供了有关如何发表一致性声明的信息，这是可选的。最后它描述了<a class="termref" title="定义：支持无障碍" href=
+      "#accessibility-supporteddef">支持无障碍</a>的含义，因为对于一致性来说，只有以支持无障碍的方式使用技术才<a class="termref"
+      title="定义：可信(技术上)" href="#reliedupondef">可信</a>。<a href=
+      "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html" hreflang=
+      "en">理解一致性</a>包括支持无障碍这一概念的进一步解释。</p>
+
+      <div class="div2">
+        <h3><a id="conformance-reqs" name="conformance-reqs"></a>一致性要求</h3>
+
+        <p>为了使网页符合<span xml:lang="en" lang="en">WCAG</span> 2.0，必须满足以下所有一致性要求：</p>
+
+        <div class="div3">
+          <a id="cc1" name="cc1"></a>
+
+          <p class="sctxt"><strong class="sc-handle">1. 一致性级别:</strong> 完全符合以下级别之一。</p>
+
+          <ul>
+            <li>
+              <p><strong class="sc-handle">A级:</strong> 对于一致性A级（即最低级别），<a class="termref" title=
+              "定义：网页" href="#webpagedef">网页</a> <a class="termref" title="定义：符合" href=
+              "#satisfiesdef">符合</a>所有A级成功标准，或提供一个<a class="termref" title=
+              "定义：符合条件的替代版本" href="#conforming-alternate-versiondef">符合条件的替代版本</a>。</p>
+            </li>
+
+            <li>
+              <p><strong class="sc-handle">AA级:</strong>
+              对于一致性AA级，网页符合所有A级和AA级成功标准，或者提供一个符合AA级的替代版本。</p>
+            </li>
+
+            <li>
+              <p><strong class="sc-handle">AAA级:</strong>
+              对于一致性AAA级，网页符合所有A级、AA级和AAA级成功标准，或者提供一个符合AAA级的替代版本。</p>
+            </li>
+          </ul>
+
+          <div class="note">
+            <p class="prefix"><em>注1:</em>
+            虽然只能在规定的层次达到一致性，但鼓励作者在超越已有一致性的任何层次上（在他们的声明中）进行改进以达到成功标准。</p>
+
+            <p class="prefix"><em>注2:</em>
+            不建议符合一致性AAA级作为整个站点的一般要求，因为对于一些内容，它不可能满足所有AAA级成功标准。</p>
+          </div>
+        </div>
+
+        <div class="div3">
+          <a id="cc2" name="cc2"></a>
+
+          
+        <p class="sctxt"><strong class="sc-handle">2. 全网页:</strong> <a class="termref" title="定义：一致性" href=
+          "#conformancedef">一致性</a>（和一致性级别）只对全<a class="termref" title="定义：网页" href=
+          "#webpagedef">网页</a>有效，如果一个网页的一部分除外，就不能叫实现一致性。</p>
+
+          <div class="note">
+            <p class="prefix"><em>注1:</em>
+            对于确定一致性的目标，当可直接从网页获取替代时，比如长描述或视频的替代呈现，此内容替代被认为是网页一部分。</p>
+
+            <p class="prefix"><em>注2:</em>
+            由于内容脱离于<span>作者</span>控制范围而导致网页没法达到一致性要求的，这些网页的作者可考虑<a href="#conformance-partial">部分一致性声明</a>。</p>
+          </div>
+        </div>
+
+        <div class="div3">
+          <a id="cc3" name="cc3"></a>
+
+          
+        <p class="sctxt"><strong class="sc-handle">3. 完整的流程:</strong> 当<a class="termref" title="定义：网页"
+          href="#webpagedef">网页</a>是一系列呈现<a class="termref" title="定义：流程" href="#processdef">流程</a>的网页里的一个网页时（例如为了完成一项活动需要完成的一系列步骤），流程中的所有网页符合指定级别或更高的级别。（如果在这个流程中某网页不符合该级别或更高，则在该级别里不可能达到一致性。）</p>
+
+          <div class="example">
+            
+          <p class="prefix"><em>例子:</em> 一个在线商店有一系列网页用来选择和购买产品。从开始到结束（结帐）系列的所有网页要一致，以便流程中的任何页面均符合要求。</p>
+          </div>
+        </div>
+
+        <div class="div3">
+          <a id="cc4" name="cc4"></a>
+
+          
+        <p class="sctxt"><strong class="sc-handle">4. 以支持无障碍的方式使用技术:</strong>只有以<a class=
+          "termref" title="定义：无障碍支持" href="#accessibility-supporteddef">无障碍支持</a> 
+          的方式使用<a class="termref" title="定义：技术 (网页内容)" href="#technologydef">技术</a>是<a class=
+          "termref" title="定义：可信(技术上)" href=
+          "#reliedupondef">可信</a>的满足成功标准。通过不支持无障碍的方式提供的任何信息或功能，也可通过支持无障碍的方式实现。 
+          （请参阅 <a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-accessibility-support-head" hreflang=
+          "en">理解无障碍支持</a>。）</p>
+        </div>
+
+        <div class="div3">
+          <a id="cc5" name="cc5"></a>
+
+          
+        <p class="sctxt"><strong class="sc-handle">5. 不干涉:</strong> 如果以不<a class="termref" title=
+          "定义：支持无障碍" href="#accessibility-supporteddef">支持无障碍</a>的方式使用<a class="termref" title=
+          "定义：技术 (网页内容)" href="#technologydef">技术</a>，或者以不符合一致性的方式使用技术，那么他们不会阻碍用户访问<a class="termref" title=
+          "定义： 网页" href="#webpagedef">网页</a>其余部分的能力。此外，网页作为一个整体符合以下各项条件的一致性要求：</p>
+
+          <ol class="enumar">
+            <li>
+              
+            <p>当在用户代理中打开任何一个不<a class="termref" title="定义：可信(技术上)" href=
+              "#reliedupondef">可信</a>的技术时,</p>
+            </li>
+
+            <li>
+              
+            <p>当在用户代理中关闭任何一个不可信的技术时,并且</p>
+            </li>
+
+            <li>
+              
+            <p>当用户代理不支持任何一个不可信的技术时,</p>
+            </li>
+          </ol>
+
+          
+        <p class="sctxt"> 此外，以下成功标准适用于网页上所有内容，包括除非不可信到不满足一致性的内容，因为不符合以下成功标准的内容会干扰对网页的使用：</p>
+
+          <ul>
+            <li>
+              <p><strong>1.4.2 - 音频控制</strong>,</p>
+            </li>
+
+            <li>
+              <p><strong>2.1.2 - 没有键盘陷阱</strong>,</p>
+            </li>
+
+            <li>
+              <p><strong>2.3.1 - 闪光三次或低于阈值</strong>, 并且</p>
+            </li>
+
+            <li>
+              <p><strong>2.2.2 - 暂停，停止，隐藏</strong>.</p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="div3">
+          <div class="note">
+            <p class="prefix"><em>注:</em>
+            如果网页达不到要求（例如用于一致性测试的网页或网页案例），它可不在一致性范围内或一致性声明里。</p>
+          </div>
+
+          <p class="sctxt">有关详细信息（包括实例）请参阅 <a href=
+          "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-conformance-requirements-head" hreflang=
+          "en">理解一致性要求</a>。</p>
+        </div>
+      </div>
+
+      <div class="div2">
+        <h3><a id="conformance-claims" name="conformance-claims"></a>一致性声明（可选）</h3>
+
+        <p>一致性定义仅对<a class="termref" title="定义：网页" href=
+        "#webpagedef">网页</a>有效。但一致性声明可只用于一个网页、一系列网页或多个相关网页。</p>
+
+        <div class="div3">
+          <h4><a id="conformance-required" name="conformance-required"></a>一致性声明的必需部分</h4>
+
+          
+        <p class="sctxt">一致性声明<strong>不是必需</strong>的。作者可以符合<span xml:lang="en" lang=
+          "en">WCAG</span> 2.0而不需声明。一旦做出一致性声明，则一致性声明<strong>必须</strong>包括以下信息：</p>
+
+          <ol class="enumar">
+            <li>
+              <p>声明<strong>日期</strong></p>
+            </li>
+
+            <li>
+              
+            <p><strong>指南名称，版本和统一资源标识符 </strong>“Web内容无障碍指南2.0 
+              http://www.w3.org/TR/2008/REC-WCAG20-20081211/”</p>
+            </li>
+
+            <li>
+              
+            <p>达到的<strong>一致性级别</strong>（等级A，AA或者AAA）。</p>
+            </li>
+
+            <li>
+              <p><strong>简洁的网页描述</strong>,
+              如声明涉及到的一系列网址，包括声明是否包含子域。</p>
+
+              <div class="note">
+                <p class="prefix"><em>注1:</em> 网页可通过列表或声明涉及到的所有网址描述语句来描述。</p>
+
+                <p class="prefix"><em>注2:</em> 基于Web的产品若不默认网址优先于安装在客户网站上，
+                则在安装后可能会有产品符合一致性的声明。</p>
+              </div>
+            </li>
+
+            <li>
+              
+            <p><strong><a class="termref" title="定义：可信（技术上）" href="#reliedupondef">可信</a>的<a class=
+              "termref" title="定义： 技术（网页内容）" href="#technologydef">Web内容技术</a></strong> 
+              清单。</p>
+            </li>
+          </ol>
+
+          <div class="note">
+            <p class="prefix">
+            <em>注：</em>如果使用符合一致性的Logo，这将作为声明一部分，需与以上列出的一致性声明必需部分放在一起。</p>
+          </div>
+        </div>
+
+        <div class="div3">
+          <h4><a id="conformance-optional" name="conformance-optional"></a>一致性声明的可选部分</h4>
+
+          <p class="sctxt">
+          除了上述一致性声明的必需部分，考虑到需提供额外信息以协助用户。推荐包括以下额外信息：</p>
+
+          
+        <ul>
+          <li> 
+            <p> 超出一致性级别以外，并声明了已达到的成功标准的清单。此信息应以机器更易读的元数据表格的形式提供给用户。</p>
+          </li>
+          <li> 
+            <p>特定技术清单，这些技术 <em>“被使用但不<a class="termref" title="定义：可信（技术上）"
+              href="#reliedupondef">可信</a></em>”。</p>
+          </li>
+          <li> 
+            <p>用户代理清单，其中包括用于测试内容的辅助技术。</p>
+          </li>
+          <li> 
+            <p>关于额外步骤的信息，这些步骤是成功标准以外用来增强无障碍的。</p>
+          </li>
+          <li> 
+            <p><a class="termref" title="定义：可信(技术上)" href=
+              "#reliedupondef">可信</a>的特定技术清单的机读元数据版本。</p>
+          </li>
+          <li> 
+            <p>一致性声明的机读元数据版本。</p>
+          </li>
+        </ul>
+
+          <div class="note">
+            <p class="prefix"><em>注1:</em> 了解更多一致性声明的相关信息及样例，请参见<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-conformance-claims-head" hreflang=
+            "en">理解一致性声明</a>。</p>
+
+            <p class="prefix"><em>注2:</em> 了解更多在元数据中使用一致性声明的信息，请参见<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/appendixC.html#understanding-metadata" hreflang=
+            "en">理解元数据</a>。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="div2">
+        <h3><a id="conformance-partial" name="conformance-partial"></a>部分一致性声明-第三方内容</h3>
+
+        
+      <p> 有时候，创建网页后，将加入更多的内容。例如电子邮件程序、博客、允许用户添加注释或者支持用户添加内容的文章。另一个例子是网站，如门户或新闻网站，其构成内容来自多个贡献者，或随时从其他来源插入内容的网站，如动态插入的广告。</p>
+
+        
+      <p class="sctxt"> 在这些情况下，很难了解第一次发布的时候发布了什么网页内容。重要的是要明白这没法控制的内容可以影响受控内容的无障碍性。有两种解决方式可供选择：</p>
+
+        <ol class="enumar">
+          <li>
+            <p>
+            可根据已有经验确定一致性。如果这种类型的网页在两个工作日内被监控和修复（删除不符合的内容或修改之以达成一致性），则可达成或声明一致性，除了删除或修正外部贡献的内容时所遇到的错误。如果无法监控或纠正不符合要求的内容，不能做一致性声明。</p>
+
+            <p><strong>或</strong></p>
+          </li>
+
+          <li>
+            
+          <p> 该网页不符合一致性，但如果某些部分被删除时，能够符合一致性，可做出“部分一致性声明”。该声明的形式为，“此页不符合一致性，但如果来自不受控制的来源的以下内容被删除，则符合<span xml:lang="en"
+            lang="en">WCAG</span> 2.0 的X级。”此外在部分一致性声明里描述的不受控制内容，以下 为真：</p>
+
+            <ol class="enumla">
+              <li>
+                <p>不是处于作者控制下的内容。</p>
+              </li>
+
+              <li>
+                <p>
+                以用户可识别的方式来描述（例如它们不能被描述为“我们无法控制所有部分”，除非他们已清楚的标记。）</p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div class="div2">
+        <h3><a id="conformance-partial-lang" name="conformance-partial-lang"></a>部分一致性声明-语言</h3>
+
+        
+      <p>当网页不符合一致性，但如果网页使用的所有语言都存在<a class="termref" title=
+        "定义：无障碍支持" href=
+        "#accessibility-supporteddef">无障碍支持</a>时，可做出“部分一致性声明-语言”。该声明的形式将会是，“此页<span>不符合一致性，但</span>如果以下语言存在着无障碍支持，则符合<span xml:lang="en" lang=
+        "en">WCAG</span> 2.0 的X级：”</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="back">
+    <div class="div1">
+      <h2><a id="glossary" name="glossary"></a>附录A：词汇</h2>
+
+      <p>本节为<a class="termref" title="定义：规范" href="#normativedef">规范</a>部分。</p>
+
+      
+    <dl>
+      <dt class="label"> <a id="asciiartdef" name="asciiartdef"></a>ASCII图 </dt>
+      <dd> 
+        <p> 由字符或符号的空间排列组成的图片（通常由95个可打印的字符组成，这些字符由ASCII定义）。</p>
+      </dd>
+      <dt class="label"> <a id="essentialdef" name="essentialdef"></a>必需 </dt>
+      <dd> 
+        <p> 如果被删除，将导致内容信息或功能发生根本上的变化，<strong>而且</strong>信息和功能没法以另外兼容方式来实现。</p>
+      </dd>
+      <dt class="label"> <a id="programmaticallydetermineddef" name="programmaticallydetermineddef"></a>编程式确定（编程式可确定的） 
+      </dt>
+      <dd> 
+        <p>软件根据作者提供的数据确定，该数据以某种方式提供，该方式即不同的<a class="termref"
+          title="定义：用户代理" href="#useragentdef">用户代理</a>（包括 <a class="termref" title=
+          "定义：辅助技术(本文档中使用)" href=
+          "#atdef">辅助技术</a>）可以以不同的形式提取和呈现这些信息给用户 。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> 标记语言根据元素和属性确定，该元素和属性可被现有辅助技术直接访问。</p>
+          <p class="prefix"><em>例 2:</em> 非标记语言根据特定技术数据结构确定，并通过无障碍<acronym title=
+            "Application Programming Interface">API</acronym> 显示给辅助技术，该API得到了普通辅助技术的支持。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="pdlinkcontextdef" name="pdlinkcontextdef"></a>编程式确定的链接上下文 
+      </dt>
+      <dd> 
+        <p>可以从链接的关系以<a class="termref" title="定义：编程式确定(可程序检测)" href=
+          "#programmaticallydetermineddef">编程式确定</a>的额外信息，该链接与链接文本放在一起以不同方式呈现给用户。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 在HTML中，从英语链接里编程式确定的信息包括同一段、列表、或作为链接的表格单元里的文本，或表头(其中表头与包含链接的表格单元相关联)的文本。</p>
+        </div>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>由于屏幕阅读器能够解释标点符号，当焦点在句子里的链接时，该阅读器还可以从当前句子提供上下文。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="programmaticallysetdef" name="programmaticallysetdef"></a>编程式设置 
+      </dt>
+      <dd> 
+        <p>软件通过用户代理(包括辅助技术)支持的方法设置。</p>
+      </dd>
+      <dt class="label"> <a id="labeldef" name="labeldef"></a>标签 </dt>
+      <dd> 
+        <p><a class="termref" title="定义：文本" href="#textdef">文本</a>或与<a class="termref" title=
+          "定义：替代文本" href=
+          "#text-altdef">替代文本</a>协同工作的其他组件，该组件呈现给用户以便发现Web<a class="termref"
+          title="定义：内容(网页内容)" href="#contentdef">内容</a>中的组件。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 标签呈现给所有用户，而<a class="termref" title="定义：名称" href=
+            "#namedef">名称</a>可能会被隐藏，只有辅助技术可显示名称。在许多（但不是全部）案例中，名称和标签是一样的。</p>
+          <p class="prefix"><em>注2:</em> 术语标签不仅限于HTML标签元素。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="suppcontentdef" name="suppcontentdef"></a>补充内容 
+      </dt>
+      <dd> 
+        <p>额外的<a class="termref" title="定义：内容（网页内容）" href=
+          "#contentdef">内容</a>，用以说明或澄清主要内容</p>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> <a class="termref" title="定义：网页" href=
+            "#webpagedef">网页</a>的音频版本。</p>
+          <p class="prefix"><em>例 2:</em> 复杂<a class="termref" title="定义：流程" href=
+            "#processdef">流程</a>的说明。</p>
+          <p class="prefix"><em>例 3:</em> 总结主要成果的段落，还给出了研究调查得出的建议。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="presentationdef" name="presentationdef"></a>呈现 
+      </dt>
+      <dd> 
+        <p><a class="termref" title="定义：内容（网页内容）" href="#contentdef">内容</a>以用户可感知的形式来显示。</p>
+      </dd>
+      <dt class="label"> <a id="lowseceddef" name="lowseceddef"></a>初中教育水平</dt>
+      <dd> 
+        <p>完成六年学业后的两年级或三年级，<a class="termref" title="定义：小学" href=
+          "#primseceddef">小学</a>教育开始后九年结束。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这个定义是根据国际标准教育分类<a href=
+            "#UNESCO">[教科文组织]</a>。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="puredecdef" name="puredecdef"></a>纯粹的装饰 </dt>
+      <dd> 
+        <p>只服务于美观的目标，提供不了任何信息，无功能。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>如果单词可以重排或被取代而不改变其用途，则文本只是纯粹的装饰。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 字典封面有几个随机的单词，放在背景里以高亮文本显示。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="video-onlydef" name="video-onlydef"></a>纯视频 </dt>
+      <dd> 
+        <p>基于时间的只包含<a class="termref" title="定义：视频" href="#videodef">视频</a> 
+          （无<a class=
+          "termref" title="定义：音频" href="#audiodef">音频</a>，无交互）的呈现。</p>
+      </dd>
+      <dt class="label"> <a id="audio-onlydef" name="audio-onlydef"></a>纯音频 </dt>
+      <dd> 
+        <p>基于时间的只包含<a class="termref" title="定义：音频" href="#audiodef">音频</a>（没有<a class=
+          "termref" title="定义：视频" href="#videodef">视频</a>，无互动）的呈现。</p>
+      </dd>
+      <dt class="label"> <a id="larger-scaledef" name="larger-scaledef"></a>大号（文本） 
+      </dt>
+      <dd> 
+        <p>至少有18点或14点的粗体大小，或者跟 中文、日文和韩文（中日韩）字体大小相当的字体大小。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 带有非常细腻的笔法、异常的、字体形状被改变等特征的字体，这样的字体很难读，尤其是在较低对比度的情况下。</p>
+          <p class="prefix"><em>注2:</em> 字体大小是当前内容呈现的大小。它不包括用户调整的大小。</p>
+          <p class="prefix"><em>注3:</em> 用户看到的字符实际大小取决于作者定义的大小和用户显示器或用户代理设置。对于许多主流正文字体，14和18点相当于1.2和1.5em或正文字体的默认大小120％或150％（假设该正文字体为100％），但作者需要检查使用的特定字体。当字体被定义为相对单位时，实际字号大小由用户代理针对显示进行计算。在评估这一成功标准时，字号的大小应从用户代理获取，或者基于用户代理使用的字体度量计算。低视力用户会负责选取适当的设置。</p>
+          <p class="prefix"><em>注4:</em> 当文本未指定字体大小时，主流浏览器的最小字体可合理的认为就是未指定的文本字体大小。如果主流浏览器上1级标题是14点粗体或更大的字体，可以合理地认为它是大号字体。相对比例可以由相似风格的默认大小计算出。</p>
+          <p class="prefix"><em>注5:</em> 罗马字体18和14点大小取自大体字印刷时采用字体的最小字号（14点）和次小字号（18点）。对于其他字体，比如中日韩语言，“同等”大小是指该种语言进行大体字印刷时采用字体的最小字号，以及次小字号。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="contrast-ratiodef" name="contrast-ratiodef"></a>对比度 
+      </dt>
+      <dd> 
+        <p>对比度 (L1 + 0.05) / (L2 + 0.05)，其中</p>
+        <ul>
+          <li> 
+            <p>L1是浅色的<a class="termref" title="定义：相对亮度" href="#relativeluminancedef">相对亮度</a> 
+              ，并且</p>
+          </li>
+          <li> 
+            <p>L2是深色的<a class="termref" title="定义：相对亮度" href=
+              "#relativeluminancedef">相对亮度</a>。</p>
+          </li>
+        </ul>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 对比度范围从1到21（俗称1:1到21:1）。</p>
+          <p class="prefix"><em>注2:</em> 由于作者没有对关于如何呈现文本的用户设置（例如字体平滑或抗锯齿）进行控制，文本对比度可通过关闭抗锯齿来评估。</p>
+          <p class="prefix"><em>注3:</em> 对于成功标准1.4.3和1.4.6，测量对比度与指定背景有关，该背景按正常使用来呈现文本。如果没有指定背景颜色，那么白色为默认背景颜色。</p>
+          <p class="prefix"><em>注4:</em> 背景颜色就是内容的指定颜色，该内容按照正常使用来呈现文本。当指定文本颜色而没有指定背景颜色时，则导致失败，因为用户的默认背景颜色未知，没法评估足够强的对比度。基于同样的原因，当指定背景颜色而没有指定文本颜色，也导致失败。</p>
+          <p class="prefix"><em>注5:</em> 当文字周围有个边框时，边框可以增加对比度，并用于计算文字和背景之间的对比度。 
+            如果字母周围的边框较窄，则可认为是字母的一部分。如果字母周围的边框较厚，以光晕形式存在，则应当归于背景部分。</p>
+          <p class="prefix"><em>注6:</em> 对于某些内容指定的颜色配对，该配对是作者期望在典型呈现里出现的颜色配对，应评估<span xml:lang="en"
+            lang=
+            "en">WCAG</span>一致性。作者不必考虑不常见的呈现，比如用户代理导致的颜色变化（除了作者代码引起的地方）。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="legalcommitmentsdef" name="legalcommitmentsdef"></a>法律承诺 
+      </dt>
+      <dd> 
+        <p>指引起有具有法律约束力的义务或利益的交易。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 结婚证、股票交易（金融和法律）、遗嘱、贷款、捐赠、参军报名、任何类型的合同等等。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="non-text-contentdef" name="non-text-contentdef"></a>非文本内容 
+      </dt>
+      <dd> 
+        <p>任何非字符序列的内容，该字符序列可<a class="termref" title=
+          "定义：编程式确定(可程序检测)" href=
+          "#programmaticallydetermineddef">编程式确定</a>，或者用于序列不是表达<a class="termref" title=
+          "定义：人类语言" href="#human-langdef">人类语言</a>含义的地方。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这包括<a class="termref" title="定义： ASCII 图" href=
+            "#asciiartdef">ASCII图</a>（字符图案），表情符号，使用字符替换的术语（leetspeak），呈现文本的图像。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="atdef" name="atdef"></a>辅助技术（比如本文档使用的技术） </dt>
+      <dd> 
+        <p>作为<a class="termref" title="定义：用户代理" href=
+          "#useragentdef">用户代理</a>或与主流用户代理协同工作的硬件和/或软件，以便提供满足残障用户需求的功能，这些需求常超出主流用户代理所提供的功能要求 
+          。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 辅助技术提供的功能包括替代呈现（如合成语音或放大内容）、替代输入法（如语音）、额外的导航或定位机制、内容转换（如使表格更加无障碍）。</p>
+          <p class="prefix"><em>注2:</em> 辅助技术往往使用和监测<acronym title=
+            "Application Programming Interfaces - 应用程序接口">APIs</acronym>与主流用户代理交换数据和消息。</p>
+          <p class="prefix"><em>注3:</em> 主流用户代理和辅助技术的区别不是绝对的。许多主流用户代理为了帮助残障人士提供某些功能。基本的区别在于主流用户代理的目标是范围广泛和多样化的用户，这些用户通常包括残障人士和健全人士。辅助技术的目标是范围狭窄的特殊残障用户，由辅助技术所提供的功能更为具体和更为适合目标用户的需要。主流用户代理可以为辅助技术提供重要的功能，如从程序对象检索网页内容或解析标记给识别包。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 本文档重要的辅助技术包括以下内容：</p>
+          <ul>
+            <li> 
+              <p> 屏幕放大器和其他视觉阅读工具，这是给视觉障碍、知觉障碍和身体残疾的人群使用的，用以改变文字的字体、大小、间距、颜色、与语音同步等等，以改善呈现的文本和图像的视觉可读性;</p>
+            </li>
+            <li> 
+              <p>屏幕阅读器，这是给盲人使用的，通过合成语音或者盲文来阅读原文信息;</p>
+            </li>
+            <li> 
+              <p> 文本语音转换软件，这是给认知障碍、语言障碍和学习障碍的人群使用的，它可以把文本转化成合成语音;</p>
+            </li>
+            <li> 
+              <p>语音识别软件，这是给一些身体残疾的人群使用的;</p>
+            </li>
+            <li> 
+              <p> 替代键盘，这是给特定身体残疾的人群使用的，用来模拟键盘（包括使用前进方向键、单开关、呼/吸 和其他特殊输入设备。）;</p>
+            </li>
+            <li> 
+              <p> 替代点击设备，这是给特定身体残疾的人群使用的，用以模拟鼠标轨迹和按钮激活功能。</p>
+            </li>
+          </ul>
+        </div>
+      </dd>
+      <dt class="label"> <a id="informativedef" name="informativedef"></a>告知性</dt>
+      <dd> 
+        <p>指仅供参考之用，并且不需要达到一致性。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>需要达到<a class="termref" title="定义： conformance" href=
+            "#conformancedef">一致性</a> 的内容被称为“<a class="termref" title="定义： normative" href=
+            "#normativedef">规范</a>的。”</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="functiondef" name="functiondef"></a>功能 </dt>
+      <dd> 
+        <p>通过用户行为可达到的<a class="termref" title="定义：流程" href="#processdef">流程</a>和结果。</p>
+      </dd>
+      <dt class="label"> <a id="relationshipsdef" name="relationshipsdef"></a>关系 
+      </dt>
+      <dd> 
+        <p>不同的内容之间有意义的联系。</p>
+      </dd>
+      <dt class="label"> <a id="normativedef" name="normativedef"></a>规范性 </dt>
+      <dd> 
+        <p>指要求达到一致性<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 人们可以以明确界定的各种方式符合本文档。</p>
+          <p class="prefix"><em>注2:</em> 被认为“<a class="termref" title="定义：信息丰富" href=
+            "#informativedef">告知性的</a>”或“非规范性的”内容不需要符合一致性。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="mechanismdef" name="mechanismdef"></a>机制 </dt>
+      <dd> 
+        <p>实现结果的<a class="termref" title="定义：流程" href="#processdef">流程</a>或技巧<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 机制可能在内容里被明文规定，或由<a class="termref" title=
+            "定义：可信(技术上)" href="#reliedupondef">可信</a>的平台或者<a class="termref"
+            title="定义：用户代理" href="#useragentdef">用户代理</a>（包括<a class="termref" title=
+            "定义：辅助技术(本文档中使用)" href="#atdef">辅助技术</a>）提供。</p>
+          <p class="prefix"><em>注2:</em> 机制需要满足一致性级别要求的所有成功标准。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="alt-time-based-mediadef" name="alt-time-based-mediadef"></a>时基媒体的替代 
+      </dt>
+      <dd> 
+        <p> 指这样的文档，该文档包括基于时间的视觉和听觉信息的正确顺序的文本描述，也提供了用以获得任何基于时间的互动结果的手段。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>创建同步媒体内容的剧本满足这种定义，仅当如果剧本经过编辑后，可以精确地呈现最终同步媒体。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="technologydef" name="technologydef"></a>技术（Web内容） 
+      </dt>
+      <dd> 
+        <p>指编码指令的<a class="termref" title="定义：机制" href="#mechanismdef">机制</a>，该编码指令由<a class="termref" title="定义： 用户代理" href=
+          "#useragentdef">用户代理</a>呈现、播放或执行<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 本指南用到的“Web技术”和单词“技术”（单独使用）均指网页内容技术。</p>
+          <p class="prefix"><em>注2:</em> 网页内容技术可能包括标记语言、数据格式或作者可能单独使用或者组合使用的编程语言，以创造最终用户体验，体验范围从静态网页到同步媒体呈现，再到动态Web应用。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 网页内容技术常见的例子包括<acronym title=
+            "Hypertext Markup Language">HTML</acronym>, <acronym title="Cascading Style Sheets">CSS</acronym>、 
+            <acronym title=
+            "Scalable Vector Graphics">SVG</acronym>、<acronym title="Portable Network Graphics">PNG</acronym>、<acronym title=
+            "Portable Document Format">PDF</acronym> 、Flash和JavaScript。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="keybrd-interfacedef" name="keybrd-interfacedef"></a>键盘接口 
+      </dt>
+      <dd> 
+        <p>软件使用的接口，用于获得按键输入。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 键盘接口允许用户提供键盘输入的方案，即使本机技术不包含键盘。</p>
+          <div class="example"> 
+            <p class="prefix"><em>例:</em> PDA触摸屏上有操作系统内置的键盘接口，跟外部键盘连接器一样。PDA上的应用程序可以使用接口来获取来自外部键盘或提供模拟键盘输出的其他应用程序，如手写翻译或语音到文本转化程序，这些程序都带有“键盘模拟”功能。</p>
+          </div>
+          <p class="prefix"><em>注2:</em> 通过键盘操作的鼠标模拟器（如鼠标键）来操作的应用程序（或应用程序的一部分）不符合键盘接口规范，因为该程序操作是通过其点击设备接口，而不是通过其键盘接口。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="roledef" name="roledef"></a>角色 </dt>
+      <dd> 
+        <p>软件用以识别网页内容中组件功能的文本或数字。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 能够指示图像功能是否为超链接、命令按钮或复选框的数字。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="structuredef" name="structuredef"></a>结构 </dt>
+      <dd> 
+        <ol class="enumar">
+          <li> 
+            <p>以相互关联方式组织<a class="termref" title="定义：网页" href=
+              "#webpagedef">网页</a>部分的方式；并且</p>
+          </li>
+          <li> 
+            <p>组织<a class="termref" title="定义：网页" href="#webpagedef">网页</a>集的方式。</p>
+          </li>
+        </ol>
+      </dd>
+      <dt class="label"> <a id="visually-customizeddef" name="visually-customizeddef"></a>可视化定制 
+      </dt>
+      <dd> 
+        <p>指字体、大小、颜色和背景可以设置。</p>
+      </dd>
+      <dt class="label"> <a id="ambiguouslinkdef" name="ambiguouslinkdef"></a>困惑普通用户</dt>
+      <dd> 
+        <p> 无法从链接和同时与链接一起呈现给用户的网页所有信息里确定链接目的（例如没有残疾障碍的读者直到激活链接之前往往不知道该链接的指向。）</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 下面的句子“值得注意的出口物品里有一个是番石榴”里的单词番石榴是一个链接。这个链接可能引向番石榴的定义、列出番石榴出口数量的图表或人们收获番石榴的照片。直到链接被激活前，所有读者都不能确定，残障人士也一样。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="extended-addef" name="extended-addef"></a>扩展音频描述 
+      </dt>
+      <dd> 
+        <p>添加到视听呈现上的音频描述。添加时，需要暂停<a class="termref" title="定义： video" href=
+          "#videodef">视频</a>，以便有足够的时间来添加额外的描述。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>此技巧仅用于当没有额外的<a class="termref" title="定义：音频描述"
+            href="#audiodescdef">音频描述</a>时，<a class="termref" title="定义：视频" href=
+            "#videodef">视频</a>感知将会消失，而且对话/旁白之间的暂停太短。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="linkpurposedef" name="linkpurposedef"></a>链接目的 
+      </dt>
+      <dd> 
+        <p>通过激活超链接获得结果的特性。</p>
+      </dd>
+      <dt class="label"> <a id="processdef" name="processdef"></a>流程 </dt>
+      <dd> 
+        <p>一系列用户行为，其中每个行为都是为完成一项活动而必需的。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> 要想成功访问一系列购物网站的网页，需要用户浏览可选择的产品、价格和折扣，选择产品，提交订单，提供运输信息并提供付款信息。</p>
+          <p class="prefix"><em>例 2:</em> 帐号注册页面需要在访问登记表之前完成成功的图灵测试。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="satisfiesdef" name="satisfiesdef"></a>满足成功标准 </dt>
+      <dd> 
+        <p>当网页应用成功标准时，该成功标准不会评估为“假”。</p>
+      </dd>
+      <dt class="label"> <a id="namedef" name="namedef"></a>名称 </dt>
+      <dd> 
+        <p>指文本，软件通过该文本向用户指出网页内容里的组件。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 名称可能被隐藏，只有辅助技术可以显示，而<a class="termref" title=
+            "定义：标签" href="#labeldef">标签</a>是呈现给所有用户。在许多（但不是全部）情况下，标签和名称是相同的。</p>
+          <p class="prefix"><em>注2:</em> 这跟HTML中的name属性毫无关系。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="contentdef" name="contentdef"></a>内容（网页内容） </dt>
+      <dd> 
+        <p>通过<a class="termref" title="定义：用户代理" href=
+          "#useragentdef">用户代理</a>方式与用户交互的信息和感官体验，包括定义内容<a class="termref"
+          title="定义：结构" href="#structuredef">结构</a>、<a class="termref" title="定义：呈现" href=
+          "#presentationdef">呈现</a>和交互的代码或标记。</p>
+      </dd>
+      <dt class="label"> <a id="fullscreenwindowdef" name="fullscreenwindowdef"></a>全屏窗口 
+      </dt>
+      <dd> 
+        <p>在最常见的台式机/笔记本电脑显示器上以最大视图显示<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>由于人们一般使用电脑好几年，当进行评估时，最好不要依赖最新的台式机/笔记本电脑的显示分辨率，但要考虑使用好几年的普通台式机/笔记本电脑的显示分辨率。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="human-langdef" name="human-langdef"></a>人类语言 </dt>
+      <dd> 
+        <p>通过口头、书面或手语（通过视觉或触觉手段）来与人类交流的语言<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>参见<a class="termref" title="定义：手语" href=
+            "#sign-languagedef">手语</a>。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="flash-def" name="flash-def"></a>闪光 </dt>
+      <dd> 
+        <p><a class="termref" title="定义：相关亮度" href=
+          "#relativeluminancedef">相关亮度</a>的一组相反变化。如果该变化在正常频率范围内足够大的话，该相关亮度可能会导致一些人癫痫发作。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 参见<a class="termref" title="定义：一般闪光和红色闪光阈值" href=
+            "#general-thresholddef">一般闪光和红色闪光阈值</a>，以获取更多的关于不允许闪光类型的信息。</p>
+          <p class="prefix"><em>注2:</em> 参见 <a class="termref" title="定义：闪烁" href="#blinksdef">闪烁</a>。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="blinksdef" name="blinksdef"></a>闪烁 </dt>
+      <dd> 
+        <p>以用于提请注意的方式在两个视觉状态之间来回切换。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>参见<a class="termref" title="定义：闪光" href="#flash-def">闪光</a>。 
+            如果界面中某些大型元素以一定的频率闪烁，也可以被认为是闪光。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="context-changedef" name="context-changedef"></a>上下文变化 
+      </dt>
+      <dd> 
+        <p>指<a class="termref" title="定义：网页" href="#webpagedef">网页</a>内容的重大变化，如果用户不了解该变化，则该变化会迷惑无法同时查看整个页面的用户。</p>
+        <p>上下文变化包括以下变化：</p>
+        <ol class="enumar">
+          <li> 
+            <p><a class="termref" title="定义：用户代理" href="#useragentdef">用户代理</a>;</p>
+          </li>
+          <li> 
+            <p><a class="termref" title="定义：视图" href="#viewportdef">视图</a>;</p>
+          </li>
+          <li> 
+            <p>焦点;</p>
+          </li>
+          <li> 
+            <p>改变<a class="termref" title="定义：网页" href="#webpagedef">网页</a>意思的<a class="termref" title=
+              "定义：内容 (网页内容)" href="#contentdef">内容</a>。</p>
+          </li>
+        </ol>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>内容变化并不总是上下文变化。内容变化，如扩大大纲\动态菜单或选项卡控件，并不一定改变上下文，除非以上四点之一也被改变（例如焦点）。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 打开一个新窗口，移动焦点到一个不同的组件，转向一个新的页面（包括提醒用户，好像他们已经转到新的页面）或明显重新编排的网页内容，这些都是上下文变化的例子。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="context-sensitivehelpdef" name="context-sensitivehelpdef"></a>上下文相关的帮助 
+      </dt>
+      <dd> 
+        <p>指帮助文本，它提供与当前操作功能相关的信息。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>清晰的标签可以作为上下文相关的帮助。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="real-time-eventsdef" name="real-time-eventsdef"></a>实时事件 
+      </dt>
+      <dd> 
+        <p>指事件a）浏览时同时发生，b）没有被内容完全生成。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> A现场演出的网络直播（发生在浏览的同时，不预录）。</p>
+          <p class="prefix"><em>例 2:</em> 网上拍卖与招标（发生在浏览的同时）。</p>
+          <p class="prefix"><em>例 3:</em> 现实生活中的人在虚拟世界里使用头像进行交互。（没有被内容完全生成，发生在浏览的同时）。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="videodef" name="videodef"></a>视频 </dt>
+      <dd> 
+        <p>移动或排列图片或影像的技术。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>视频可由动画或摄影图像或两者组成。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="viewportdef" name="viewportdef"></a>视图 </dt>
+      <dd> 
+        <p>指用户代理用以呈现内容的对象。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> <a class="termref" title="定义：用户代理" href=
+            "#useragentdef">用户代理</a>通过一个或多个视图呈现内容。视图包括窗口、框架、扬声器和虚拟放大镜。一个视图可能包含另一个视图（比如嵌套的框架）。由用户代理所创建的界面组件（像提示行、菜单，警报）并不是视图。</p>
+          <p class="prefix"><em>注2:</em> 本定义是以<a href="http://www.w3.org/TR/WAI-USERAGENT/glossary.html" hreflang=
+            "en">用户代理无障碍指南1.0词汇表</a>为基础。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="sign-languagedef" name="sign-languagedef"></a>手语 
+      </dt>
+      <dd> 
+        <p>手和胳膊的动作、面部表情或身体姿势动作的组合来表达意义的语言。</p>
+      </dd>
+      <dt class="label"> <a id="sign-languageinterpdef" name="sign-languageinterpdef"></a>手语翻译 
+      </dt>
+      <dd> 
+        <p>将一门语言（通常是口语）翻译成<a class="termref" title="定义：手语" href=
+          "#sign-languagedef">手语</a>。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>真正的手语是一门独立的语言，跟口语语言无关（在同一个国家或地区里）。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="input-errordef" name="input-errordef"></a>输入错误 
+      </dt>
+      <dd> 
+        <p>指用户输入的不被接受的信息。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这些错误包括：</p>
+          <ol class="enumar">
+            <li> 
+              <p><a class="termref" title="定义：网页" href=
+                "#webpagedef">网页</a>需要的但被用户省略的信息。</p>
+            </li>
+            <li> 
+              <p>由用户提供的但不属于所需要的数据格式或值的信息。</p>
+            </li>
+          </ol>
+        </div>
+      </dd>
+      <dt class="label"> <a id="jargondef" name="jargondef"></a>术语 </dt>
+      <dd> 
+        <p>在特定领域以特定的方式使用的词语。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 粘滞键是辅助技术/无障碍领域的术语。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="nav-seqdef" name="nav-seqdef"></a>顺序导航 </dt>
+      <dd> 
+        <p>在移动焦点（从一个元素到下一个元素）时，使用<a class="termref" title="定义：键盘接口"
+          href="#keybrd-interfacedef">键盘接口</a>以定义的顺序导航。</p>
+      </dd>
+      <dt class="label"> <a id="abbreviationsdef" name="abbreviationsdef"></a>缩写 
+      </dt>
+      <dd> 
+        <p>单词、短语或其缩写并未成为语言一部分的名称的缩写形式。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 这里包括首字母缩写词（initialisms 和 acronyms），其中：</p>
+          <ol class="enumar">
+            <li> 
+              <p><strong>首字母缩写（initialisms ）</strong> 是一个名称或短语的缩写形式，由名称或短语包含的单词首字母或音节首字母组成。</p>
+              <div class="note"> 
+                <p class="prefix"><em>注1:</em> 不是所有语言都这么定义。</p>
+              </div>
+              <div class="example"> 
+                <p class="prefix"><em>例 1:</em> SNCF是一个法语缩写，由法国国家铁路（<span lang="fr" xml:lang=
+                  "fr">Société Nationale des Chemins de Fer</span>）的首字母组成。</p>
+                <p class="prefix"><em>例 2:</em> ESP是一个超感知觉（extrasensory perception）的缩写。</p>
+              </div>
+            </li>
+            <li> 
+              <p><strong>首字母缩写（acronyms）</strong> 是由首字母或其他单词部分（在名称或短语里）组成的缩写形式，可以作为一个单词的发音。</p>
+              <div class="example"> 
+                <p class="prefix"><em>例:</em> NOAA是美国国家海洋和大气管理局的首字母缩写。</p>
+              </div>
+            </li>
+          </ol>
+          <p class="prefix"><em>注2:</em> 一些公司采用了所谓的缩写来作为他们公司名字。在这种情况下，公司的新名称就是这些字母（例如Ecma欧洲计算机制造商），并且此词不再被视为缩写。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="sensoryexpdef" name="sensoryexpdef"></a>特殊感官体验 
+      </dt>
+      <dd> 
+        <p> 指一种感官体验，该体验不是做花哨装饰用，也不是用于传达重要信息或执行一个功能。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 例如长笛独奏，视觉艺术作品等。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="text-altdef" name="text-altdef"></a>替代文本 </dt>
+      <dd> 
+        <p>可以编程式确定、用于替代<a class="termref" title="定义：非文本内容" href=
+          "#non-text-contentdef">非文本内容</a>的<a class="termref" title="定义：文本" href=
+          "#textdef">文本</a>，或者用于补充非文本内容并可以从通过编程式确定的文本中进行引用的文本。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 段落里图表图像后面的文本描述 。这个简短的替代文本用于说明图表信息。</p>
+        </div>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>请参考<a href=
+            "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-text-alternatives-head" hreflang=
+            "en">理解替代文本</a>以了解更多信息。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="synchronizedmediadef" name="synchronizedmediadef"></a>同步媒体 
+      </dt>
+      <dd> 
+        <p>与其他格式同步的<a class="termref" title="定义：音频" href="#audiodef">音频</a>或<a class="termref"
+          title="定义：视频" href="#videodef">视频</a>，用于呈现信息和/或基于时间的交互式组件，除非该媒体是<a class="termref" title=
+          "定义：文本的替代媒体" href=
+          "#multimedia-alt-textdef">文本的替代媒体</a>，该替代已被清楚地标示。</p>
+      </dd>
+      <dt class="label"> <a id="emergencydef" name="emergencydef"></a>突发事件 </dt>
+      <dd> 
+        <p>突然、意外情况或事故，需要立即采取行动以保持健康、安全或财产。</p>
+      </dd>
+      <dt class="label"> <a id="webpagedef" name="webpagedef"></a>网页 </dt>
+      <dd> 
+        <p>指使用HTTP从单一URI获取的非嵌入式资源，以及由<a class="termref" title="定义：用户代理" href=
+          "#useragentdef">用户代理</a>用于呈现或为了与非嵌入式资源一起呈现的其他资源。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 虽然“其他资源”与主要资源一起被呈现，他们彼此不一定会同时呈现。</p>
+          <p class="prefix"><em>注2:</em> 为了达到这些准则的一致性目标，资源在一致性范围(考虑为一个网页)内必须是“非嵌入式的”。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> 包括所有嵌入式图像和媒体的Web资源。</p>
+          <p class="prefix"><em>例 2:</em> 内置使用异步JavaScript和XML（AJAX）的电子邮件程序。该程序可见http://example.com/mail，且包括收件箱、联系人和日历等。链接或按钮被提供，以便使用收件箱、联系人或日历显示，但整体上不会改变网页的URI。</p>
+          <p class="prefix"><em>例 3:</em> 可定制的门户网站，用户可从一系列不同的内容模块来选择要显示的内容。</p>
+          <p class="prefix"><em>例 4:</em> 当您在浏览器输入“http://shopping.example.com/”，您会进入像电影那样的互动购物环境，在那里您可直观地在商店走动，从您周围货架拖动产品，并丢进您面前的视觉购物车。点击一个产品可使用旁边浮动的规格表来观察。这可能是一个单页网站或者网站只有一个网页。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="set-of-web-pagesdef" name="set-of-web-pagesdef"></a>网页集 
+      </dt>
+      <dd> 
+        <p><a class="termref" title="定义：网页" href="#webpagedef">网页</a>的集合，这些网页有共同的目标并且由同一作者、团队或组织创建。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>不同的语言版本将被视为不同的网页集。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="textdef" name="textdef"></a>文本 </dt>
+      <dd> 
+        <p>指字符序列，该序列在表达<a class="termref" title="定义：人类语言" href=
+          "#human-langdef">人类语言</a>含义的同时，也可进行<a class="termref" title=
+          "定义：编程式确定 (可程序检测)" href="#programmaticallydetermineddef">编程式确定</a>。</p>
+      </dd>
+      <dt class="label"> <a id="multimedia-alt-textdef" name="multimedia-alt-textdef"></a>文本的替代媒体 
+      </dt>
+      <dd> 
+        <p>呈现信息与文本（直接或通过替代文本）呈现信息一样多的媒体。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>为那些受益于替代文本呈现的人提供文本的替代媒体。文本的替代媒体可能是纯音频，纯视频（包括手语视频），或音视频。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="blockstextdef" name="blockstextdef"></a>文本块 </dt>
+      <dd> 
+        <p>不止一个文本句子。</p>
+      </dd>
+      <dt class="label"> <a id="images-of-textdef" name="images-of-textdef"></a>文本图像 
+      </dt>
+      <dd> 
+        <p>文本以非文本形式（如图像）呈现，以实现特定的视觉效果。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这不包括作为图片一部分的<a class="termref" title="定义：文本" href=
+            "#textdef">文本</a>，该图片包含其他重要视觉内容。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 照片里名牌标志上的某人名字。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="idiomsdef" name="idiomsdef"></a>成语 </dt>
+      <dd> 
+        <p>不能从个别单词推导出其含义的短语，该特定单词不能交换，以免失去意义。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>成语不能逐字逐句直接翻译，以免失去他们（文化或独立语言）本来的意义。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例 1:</em> 在英语中，“使豆豆溢出”是指“透露秘密”。然而“碰撞豆豆”或“使蔬菜溢出”并不意味着同样的意思。</p>
+          <p class="prefix"><em>例 2:</em> 在日本，把“<span lang="ja" xml:lang=
+            "ja">さじを投げる</span>”字面翻译成“他抛出一个勺子”，但实际意思是他没有什么可以做的，因此最后他放弃了。</p>
+          <p class="prefix"><em>例 3:</em> 在荷兰，“<span lang="nl" xml:lang="nl">Hij 
+            ging met de kippen op stok</span>”字面翻译成“他和鸡走到鸡窝里”，但实际意思是他早早就上床睡觉了。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="relativeluminancedef" name="relativeluminancedef"></a>相对亮度 
+      </dt>
+      <dd> 
+        <p>色彩空间里任何一点的相对明度(Relative Brightness)，标准化为0的是深黑色，为1的是亮白色</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 对于sRGB色彩空间，色彩的相对亮度是指定义L = 0.2126 * <strong>R</strong> 
+            + 0.7152 * <strong>G</strong> + 0.0722 * <strong>B</strong>，其中<strong>R</strong>，<strong>G</strong>和<strong>B</strong>的定义为：</p>
+          <ul>
+            <li> 
+              <p>如果R<sub>sRGB</sub> &lt;= 0.03928，则<strong>R</strong> = R<sub>sRGB</sub>/12.92，否则 
+                <strong>R</strong> = ((R<sub>sRGB</sub>+0.055)/1.055) ^ 2.4</p>
+            </li>
+            <li> 
+              <p>如果G<sub>sRGB</sub> &lt;= 0.03928，则<strong>G</strong> = G<sub>sRGB</sub>/12.92，否则 
+                <strong>G</strong> = ((G<sub>sRGB</sub>+0.055)/1.055) ^ 2.4</p>
+            </li>
+            <li> 
+              <p>如果R<sub>sRGB</sub> &lt;= 0.03928，则<strong>B</strong> = B<sub>sRGB</sub>/12.92，否则<strong>B</strong> 
+                = ((B<sub>sRGB</sub>+0.055)/1.055) ^ 2.4</p>
+            </li>
+          </ul>
+          <div class="note"> 
+            <p class="prefix">并且R<sub>sRGB</sub>，G<sub>sRGB</sub>和B<sub>sRGB</sub>定义如下：</p>
+          </div>
+          <ul>
+            <li> 
+              <p>R<sub>sRGB</sub> = R<sub>8bit</sub>/255</p>
+            </li>
+            <li> 
+              <p>G<sub>sRGB</sub> = G<sub>8bit</sub>/255</p>
+            </li>
+            <li> 
+              <p>B<sub>sRGB</sub> = B<sub>8bit</sub>/255</p>
+            </li>
+          </ul>
+          <div class="note"> 
+            <p class="prefix">其中“^”字符是幂运算符。 （公式来自<a href="#sRGB">[sRGB]</a>和<a href=
+              "#IEC-4WD">[IEC-4WD]</a>）。</p>
+          </div>
+          <p class="prefix"><em>注2:</em> 今天几乎所有用于浏览网页内容的系统使用了sRGB编码。除非我们知道另一种颜色空间用于处理和显示内容，否则作者应该评估使用sRGB色彩空间。如果使用其他色彩空间，请参阅<a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-contrast.html"
+            hreflang="en">理解成功标准1.4.3</a>。</p>
+          <p class="prefix"><em>注3:</em> 如果网页生成后出现抖动，则要用到源颜色值。对于那些源头抖动颜色，应使用抖动颜色的平均值（平均R，平均G和平均B）。</p>
+          <p class="prefix"><em>注4:</em> 当测试对比度和闪光时，可使用自动计算的工具。</p>
+          <p class="prefix"><em>注5:</em> <a href="http://www.w3.org/TR/2008/REC-WCAG20-20081211/relative-luminance.xml"
+            hreflang="en">相对亮度定义的MATHML版本</a>可用。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="samerelorderdef" name="samerelorderdef"></a>相同的相对顺序 
+      </dt>
+      <dd> 
+        <p>相对于其他项目同样的位置</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>即使其他项目被插入或从原顺序删除，仍考虑项目保持同一个相对顺序。例如，扩展导航菜单可以插入更详细的其他级别或按阅读顺序插入第二导航部分。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="samefunctionalitydef" name="samefunctionalitydef"></a> 
+        相同功能 </dt>
+      <dd> 
+        <p>当使用此功能时，可得到同样结果。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 在与提交相关的网站里，网页上的“搜索”按钮和另一个网页上的“查找”按钮可能都有一个用于输入术语或列表主题的方框。在这种情况下，他们将有相同的功能，但不会标记为一致。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="primseceddef" name="primseceddef"></a>小学教育程度 </dt>
+      <dd> 
+        <p>6年制学业，开始于5至7岁之间，可能之前没有受到任何教育<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这个定义是根据国际标准教育分类 <a href=
+            "#UNESCO">[教科文组织]</a>。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="reliedupondef" name="reliedupondef"></a>可信（技术上） 
+      </dt>
+      <dd> 
+        <p>如果该<a class="termref" title="定义：技术（网页内容）" href="#technologydef">技术</a>被关闭或不支持，则内容不<a class="termref" title="定义：符合" href="#conformancedef">符合</a>要求。</p>
+      </dd>
+      <dt class="label"> <a id="CAPTCHAdef" name="CAPTCHAdef"></a>验证码 （CAPTCHA）</dt>
+      <dd> 
+        <p>“Completely Automated Public Turing test to tell Computers and Humans 
+          Apart（完全自动化的公共图灵测试，以区分电脑和人类）” 的缩写<em>。</em></p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 验证码测试往往要求用户打出文本，而这文本事先在模糊图像或音频文件上显示。</p>
+          <p class="prefix"><em>注2:</em> 图灵测试是任何一个被设计用于区别人和电脑的测试系统。它得名于著名的计算机科学家阿兰•图灵。该词由卡内基梅隆大学的研究人员发明定义。<a href="#CAPTCHA">[CAPTCHA]</a></p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="general-thresholddef" name="general-thresholddef"></a>一般闪光和红色闪光阈值 
+      </dt>
+      <dd> 
+        <p><a class="termref" title="定义：闪光" href=
+          "#flash-def">闪光</a>或快速变化的图像序列，他们频率低于阈值（比如内容<strong>滑动</strong>的频率跟阈值的比较决定是否属于闪光类型），如果以下部分全为真：</p>
+        <ol class="enumar">
+          <li> 
+            <p>在任何一秒钟内，<strong>一般闪光</strong> 不超过3闪，并且/或者<strong>红光</strong>不超过3闪；或</p>
+          </li>
+          <li> 
+            <p> 在典型的视距上，闪光的所有区域不超过显示器10度视野的所有0.006立体弧度（显示器任何10度视野的25%）。</p>
+          </li>
+        </ol>
+        <p>其中:</p>
+        <ul>
+          <li> 
+            <p><strong>一般闪光</strong>被定义为一对<a class="termref" title="定义：相对亮度" href=
+              "#relativeluminancedef">相对亮度</a>的相反变化，该相对亮度为最大相对亮度的10％或更多 ，在最大相对亮度里，深色图像相对亮度低于0.80，并且“一对相反变化”一减一增或者一增一减，并且</p>
+          </li>
+          <li> 
+            <p><strong>红色闪光</strong>被定义为一对饱和红色的相反转换。</p>
+          </li>
+        </ul>
+        <p><em>特例:</em> 作为一个精致均衡图案的闪光，比如白噪声，或者“方格”小于（典型视距上视野）0.1倍的的替代棋盘图案，这种闪光不违反阈值。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 对于一般的软件或网页内容来说，当以1024 × 768像素浏览内容时，在显示器上选取341 
+            × 256像素区域时可以提供比标准显示和视距情况下（比如15-17英寸屏幕和22-26英寸的距离）10度视野的较好估计。（高分辨率显示相同的内容其区域要比原来小些，图像也更小些，所以一般低分辨率用来定义阈值。）</p>
+          <p class="prefix"><em>注2:</em> 转换是指相对亮度（或红色闪光的相对亮度/颜色）的变化，在一小块相对亮度测量的相邻高峰和低谷之间快速变化。闪光由两个对立的转换组成。</p>
+          <p class="prefix"><em>注3:</em> 对“一对饱和红色的相反转换”来说，此领域当前工作在于阐释每一种或两种涉及每个转换（R/(R+ 
+            G + B) &gt;= 0.8,）的状态，以及两个转换(R-G-B)x320 &gt; 2值（(R-G-B)x320负值设置为零）的变化。 
+            “相对亮度”定义里规定R，G，B值范围为0-1。<a href="#HARDING-BINNIE">[HARDING-BINNIE]</a></p>
+          <p class="prefix"><em>注4:</em> 视频屏幕捕捉分析工具是可用的。但没有工具用于评估闪光是否小于或等于3闪/秒。内容自动滑动的情况请参见以上定义第1条和第2条。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="conformancedef" name="conformancedef"></a>一致性 
+      </dt>
+      <dd> 
+        <p>满足给定的标准、指南或规范的所有要求。</p>
+      </dd>
+	  <dt class="label"> <a id="conforming-alternate-versiondef" name="conforming-alternate-versiondef"></a>一致性替代版本 
+      </dt>
+      <dd> 
+        <p>指以下版本</p>
+        <ol class="enumar">
+          <li> 
+            <p>符合指定的级别， 并且</p>
+          </li>
+          <li> 
+            <p>相同<a class="termref" title="定义：人类语言" href=
+              "#human-langdef">人类语言</a>里，提供所有相同的信息和<a class="termref" title="定义：功能" href=
+              "#functiondef">功能</a>，并且</p>
+          </li>
+          <li> 
+            <p>跟非一致性的内容一样都是最新的，并且</p>
+          </li>
+          <li> 
+            <p>下列部分至少有一为真：</p>
+            <ol class="enumla">
+              <li> 
+                <p>通过<a class="termref" title="定义：支持无障碍" href=
+                  "#accessibility-supporteddef">支持无障碍</a>的<a class="termref" title="定义：机制" href=
+                  "#mechanismdef">机制</a>，非一致性的网页可得到一致性的版本，或</p>
+              </li>
+              <li> 
+                <p>只能从一致性的版本得到非一致性的版本，或</p>
+              </li>
+              <li> 
+                <p> 不符合要求的版本只能从一致性网页得到非一致性的版本，并且该网页也提供达到一致性版本的机制</p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 上述定义中，“只能得到”是有条件的，如重定向机制，可以防止用户“到达”（加载）非一致性页面，除非用户刚刚访问一致性版本。</p>
+          <p class="prefix"><em>注2:</em> 替代版本不需要为原网页匹配网页（如一致性替代版本可能由多个网页组成）。</p>
+          <p class="prefix"><em>注3:</em> 如果有多个语言版本可用，每个语言均应提供一致性替代版本。</p>
+          <p class="prefix"><em>注4:</em> 为适应不同的技术环境或用户组，应提供替代版本。每个版本应尽可能达到一致性。为了满足<a href="#cc1">一致性要求1</a>，应提供一个完全一致性的版本。</p>
+          <p class="prefix"><em>注5:</em> 一致性替代版本不需要处于一致性范围内，甚至同一个网站范围内，只要它和非一致性的版本一样可自由使用。</p>
+          <p class="prefix"><em>注6:</em> 替代版本不应与支持原网页和增强理解力的<a class="termref" title=
+            "定义：补充内容" href="#suppcontentdef">补充内容</a>相混淆。</p>
+          <p class="prefix"><em>注7:</em> 在内容里设置用户偏好以得到一致性的版本是可接受的机制，只要设置偏好的方法是支持无障碍的。</p>
+        </div>
+        <p class="circref">请参阅<a href=
+          "http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-conforming-alt-versions-head" hreflang=
+          "en">理解一致性替代版本</a>。</p>
+      </dd>
+      <dt class="label"> <a id="unusual-restricteddef" name="unusual-restricteddef"></a>以特殊的或受限的方式使用 
+      </dt>
+      <dd> 
+        <p> 以这样一种方式使用单词，该方式需要用户清楚地知道该单词适用哪些定义，以便正确地理解内容。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 术语“gig”用在音乐会讨论上，跟用在关于计算机硬盘空间的文章上相比，术语“gig”的概念是不一样的，但其相应的定义可以从上下文中确定。相比之下，单词“text”以非常具体的方式用在<span xml:lang="en"
+            lang="en">WCAG</span> 2.0上，所以术语表提供了定义。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="audiodef" name="audiodef"></a>音频 </dt>
+      <dd> 
+        <p>声音再现技术</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>音频可以合成生成（包括语音合成），也可以从真实世界里录音，或两者都有。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="audiodescdef" name="audiodescdef"></a>音频描述 </dt>
+      <dd> 
+        <p>添加到音轨上的解说，用以描述仅从主音轨上无法理解的重要视觉细节。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> <a class="termref" title="定义：视频" href=
+            "#videodef">视频</a>的音频描述提供了有关动作、角色、场景变化、屏幕文字和其他视觉内容的信息。</p>
+          <p class="prefix"><em>注2:</em> 标准的音频描述在对话空隙里添加了解说。 （另见<a class="termref"
+            title="定义：扩展音频描述" href="#extended-addef">扩展音频描述</a>。）</p>
+          <p class="prefix"><em>注3:</em> 凡现有<a class="termref" title="定义：音频" href=
+            "#audiodef">音频</a>已提供所有<a class="termref" title="定义：视频" href="#videodef">视频</a>信息的地方，没有其他必要的额外音频描述。</p>
+          <p class="prefix"><em>注4:</em> 也称为“视频描述”和“描述性解说。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="useragentdef" name="useragentdef"></a>用户代理 </dt>
+      <dd> 
+        <p>为用户检索和呈现网页内容的任何软件。</p>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> Web浏览器、媒体播放器、插件和其他程序（包括<a class="termref"
+            title="定义：辅助技术 (本文档中使用)" href=
+            "#atdef">辅助技术</a>），他们能够帮助检索、呈现网页内容，与网页内容互动。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="user-interface-componentdef" name="user-interface-componentdef"></a>用户界面组件 
+      </dt>
+      <dd> 
+        <p>指内容的一部分，该部分作为独特功能的单一控件被用户所感知。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 多用户界面组件可能作为单个编程式元素来实现。这里组件不依赖于编程技巧，而是作为单一控件而被用户感知。</p>
+          <p class="prefix"><em>注2:</em> 用户界面组件包括表单元素、链接以及由脚本生成的组件。</p>
+		  <p class="prefix"><em>注3:</em> “用户界面组件”或“组件”，有时也被称为“用户界面元素”。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> applet有一个可用于通过移动行或页或随机存取内容的“控件”。由于这些控件每一个都需要名字并可设置，因此该控件每一个就是“用户界面组件。”</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="user-controllabledef" name="user-controllabledef"></a>用户可控的 
+      </dt>
+      <dd> 
+        <p>指为了能让用户访问的数据。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注：</em>这并非互联网日志和搜索引擎监测数据之类的数据。</p>
+        </div>
+        <div class="example"> 
+          <p class="prefix"><em>例:</em> 用户账号的名字和地址字段。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="prerecordeddef" name="prerecordeddef"></a>预录 </dt>
+      <dd> 
+        <p>无法现场<a class="termref" title="定义：直播" href="#livedef">直播</a>的信息。</p>
+      </dd>
+      <dt class="label"> <a id="pauseddef" name="pauseddef"></a>暂停 </dt>
+      <dd> 
+        <p>用户请求停止，并直到用户请求才恢复。</p>
+      </dd>
+      <dt class="label"> <a id="sectiondef" name="sectiondef"></a>章节 </dt>
+      <dd> 
+        <p>书面内容的独立部分，该书面内容涉及一个或多个相关主题或思想 。</p>
+        <div class="note"> 
+          <p class="prefix"> <em>注：</em>一个章节可能包含一个或多个段落，包括图形、表格、列表和小节。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="correct-reading-sequencedef" name="correct-reading-sequencedef"></a>正确的阅读顺序 
+      </dt>
+      <dd> 
+        <p>指这样的顺序，在此顺序里文字和段落以不改变内容含义的次序呈现。</p>
+      </dd>
+      <dt class="label"> <a id="accessibility-supporteddef" name="accessibility-supporteddef"></a>支持无障碍 
+      </dt>
+      <dd> 
+        <p>和浏览器或其他<a class="termref" title="定义：用户代理" href=
+          "#useragentdef">用户代理</a>的无障碍特性一样，被用户的<a class="termref" title=
+          "定义：辅助技术(本文档中使用)" href="#atdef">辅助技术</a>所支持。</p>
+        <p> 为了使网页内容技术（或技术特征）的使用支持无障碍，网页内容技术（或特征）必须满足1和2：</p>
+        <ol class="enumar">
+          <li> 
+            <p><strong>使用<a class="termref" title="定义：技术 (网页内容)" href=
+              "#technologydef">网页内容技术</a>的方式必须能被用户辅助技术（AT）所支持。</strong>这意味着在网页内容的<a class="termref"
+              title="定义：人类语言" href="#human-langdef">人类语言</a> 里，使用技术的方式已测试过与辅助技术的互操作性，</p>
+            <p><strong>并且</strong></p>
+          </li>
+          <li> 
+            <p> <strong>网页内容技术必须有支持无障碍的用户代理，这个用户代理对用户有效的。</strong> 这意味着以下四个声明至少有一为真：</p>
+            <ol class="enumla">
+              <li> 
+                <p> 在广泛分布的用户代理里，该技术被本地所支持，用户代理本身也是支持无障碍的（如HTML和CSS）;</p>
+                <p><strong>或</strong></p>
+              </li>
+              <li> 
+                <p>广泛分布的插件支持该技术，插件本身也是支持无障碍的;</p>
+                <p><strong>或</strong></p>
+              </li>
+              <li> 
+                <p> 在封闭的环境里，内容是有效的，如大学或公司网络。在这个网络里，技术需要用到的用户代理和单位使用的用户代理都是支持无障碍的;</p>
+                <p><strong>或</strong></p>
+              </li>
+              <li> 
+                <p> 支持技术的用户代理是支持无障碍的，而且可以某种方式下载或者购买，这种方式可以是：</p>
+                <ul>
+                  <li> 
+                    <p>残障人士不需要比健全人士花费更多的成本。 <strong>并且</strong></p>
+                  </li>
+                  <li> 
+                    <p>对于残障人士来说很容易找到和获取，就像没有残疾一样。</p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 对于网页技术的特定使用，<span xml:lang="en" lang=
+            "en">WCAG</span>工作组和W3C没有具体说明辅助技术必须支持哪些或有多大以便划分无障碍支持等级。 （见<a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-support-level-head" hreflang=
+            "en">“无障碍支持”需要的辅助技术支持级别</a>。）</p>
+          <p class="prefix"><em>注2:</em> Web技术可以不支持无障碍的方式使用，只要他们不<a class=
+            "termref" title="定义：可信(技术上)" href=
+            "#reliedupondef">可信</a>，而且网页作为一个整体满足一致性要求，包括以下两个要求，即<a href="#cc4">一致性要求4：以支持无障碍的方式使用技术</a>，和 
+            <a href="#cc5">一致性要求5：不干涉</a>。</p>
+          <p class="prefix"><em>注3:</em> 当以支持无障碍的方式使用<a class="termref" title=
+            "定义：技术(网页内容)" href=
+            "#technologydef">网页技术</a>时，这并不意味着支持整个技术或技术用途。大部分技术（包括HTML）缺乏至少一个特性或用途的支持。只有支持无障碍的技术用途可信赖到符合<span xml:lang="en"
+            lang="en">WCAG</span>要求时，网页才可能符合<span xml:lang="en" lang="en">WCAG</span> 
+            。</p>
+          <p class="prefix"><em>注4:</em> 当援引多个版本的网页内容技术时，应明确支持的版本。</p>
+          <p class="prefix"><em>注5:</em> 作者以查阅用途汇编的方式找到支持无障碍的技术用途，这些用途已被登记为支持无障碍（请参阅<a href="http://www.w3.org/TR/UNDERSTANDING-WCAG20/conformance.html#uc-documented-lists-head"
+            hreflang=
+            "en">理解支持无障碍的Web技术用途</a>）。作者、公司、技术供应商或其他人都可记录支持无障碍的方式以使用网页技术。然而，文档中使用技术的所有方式需要符合以上支持无障碍的网页内容技术的定义。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="livedef" name="livedef"></a>直播 </dt>
+      <dd> 
+        <p>从真实世界里的事件捕获信息并在不超过广播延迟的时间里传送给接收器。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 广播延迟是时间较短（通常是自动）的延迟，比如目的是为了提供用于排队或审查音频（或视频）输出但不足以进行重大编辑的广播时间。</p>
+          <p class="prefix"><em>注2:</em> 如果信息是完全由电脑生成的，则它不是现场直播。</p>
+        </div>
+      </dd>
+      <dt class="label"> <a id="captionsdef" name="captionsdef"></a>字幕 </dt>
+      <dd> 
+        <p>语音和非语音视频信息的同步视觉和/或<a class="termref" title="定义：替代文本" href=
+          "#text-altdef">替代文本</a>，这些信息用来理解媒体内容。</p>
+        <div class="note"> 
+          <p class="prefix"><em>注1:</em> 字幕不仅传达口语对话内容，而且也是非对话音频信息的替代，这些信息被用来理解节目内容，包括音频效果、音乐、笑声，说话人识别和定位。除此以外，字幕跟对话字幕类似。</p>
+          <p class="prefix"><em>注2:</em> 隐藏字幕作为等价，该等价可被播放器打开或关闭。</p>
+          <p class="prefix"><em>注3:</em> 开放字幕是指任何无法被关闭的字幕。例如字幕是嵌入到<a class=
+            "termref" title="定义：视频" href="#videodef">视频</a>的视觉等价<a class="termref" title=
+            "定义：文本图像" href="#images-of-textdef">文本图像</a>。</p>
+          <p class="prefix"><em>注4:</em> 视频里的字幕不应掩盖或阻碍相关信息。</p>
+          <p class="prefix"><em>注5:</em> 在一些国家，字幕叫做对白字幕。</p>
+          <p class="prefix"><em>注6:</em> <a class="termref" title="定义：音频描述" href=
+            "#audiodescdef">音频描述</a>可以但不需要作为字幕，因为音频描述是已经视觉呈现的信息叙述。</p>
+        </div>
+      </dd>
+     <div class="new">
+      <dt class="label "> <a id="dfn-accessible-name" name="dfn-accessible-name"></a>无障碍名称 </dt>
+      <dd> 
+        <p>用户界面元素的名称。</p>
+        <p>可访问名称的值可以从用户界面元素的可见（例如：按钮上的可见文本    或不可见（例如描述图标的文本替代物    的属性导出。可以通过“确定”按钮说明可访问属性的简单用法。文字“OK”是可访问的名称。当按钮接收焦点时，辅助技术可以将平台的角色描述与可访问名称连接。例如屏幕阅读器可以说“按钮OK”或“OK”按钮。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-adapt" name="dfn-adapt"></a>适应/适配 </dt>
+      <dd> 
+        <p>格式被客户端覆盖。</p>
+      </dd>
+
+
+
+      <dt class="label "> <a id="dfn-character-key" name="dfn-character-key"></a>字符键 </dt>
+      <dd> 
+        <p>单一可打印的Unicode代码点，可打印的任何键盘字符，即字母表字母的字母，包括大写字母，标点符号，数字和符号。</p>
+        <p>返回空格而不是字符的空格键和回车键不是字符键。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-change-of-content" name="dfn-change-of-content"></a>内容变化 </dt>
+      <dd> 
+        <p>在将网页发送给用户代理之后，对网页进行的更改，无论是否由用户发起 。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-contextual-information" name="dfn-contextual-information"></a>上下文信息 </dt>
+      <dd> 
+        <p>阐明对象意义的信息</p>
+        <p>包括：对象目的，进程位置，与其他对象和进程的关系</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-conventional-buttons-or-controls" name="dfn-conventional-buttons-or-controlsn"></a>常规/常用按钮或控件 </dt>
+      <dd> 
+        <p>广泛认可的按钮和控制类型</p>
+        <p>以下类型被广泛认可</p>
+        <ul>
+        	<li>
+        		<p><strong>撰写: </strong>撰写新的项目，如电子邮件。</p>
+        	 </li>
+        	<li>
+        		<p><strong>下一个: </strong>移动到列表中的下一个项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>删除: </strong>删除当前项目，选定的控件或文本。</p>
+        	 </li>
+        	<li>
+        		<p><strong>上一个: </strong>移动到系列中的前一个项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>toc: </strong>打开一张内容表。</p>
+        	 </li>
+        	<li>
+        		<p><strong>提交: </strong>将表单数据或请求提交给服务器。</p>
+        	 </li>
+        	<li>
+        		<p><strong>撤销: </strong>恢复到用户最近的更改之前的状。</p>
+        	 </li>
+        	<li>
+        		<p><strong>取消: </strong>关闭对话框，并放弃用户在该对话框内所做的任何更改。</p>
+        	 </li>
+        	<li>
+        		<p><strong>重置: </strong>将所有控件重置为其初始值。</p>
+        	 </li>
+        	<li>
+        		<p><strong>标签: </strong>在所选项目或当前位置的项目中添加标签。</p>
+        	 </li>
+        	<li>
+        		<p><strong>购买: </strong>购买所选项目或购买当前位置的项目。通常将当前项目添加到购物车中。</p>
+        	 </li>
+        	<li>
+        		<p><strong>添加: </strong>将所选项目或当前位置的项目添加到列表中。</p>
+        	 </li>
+        	<li>
+        		<p><strong>移动: </strong>移动所选项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>保存: </strong>保存当前内容。</p>
+        	 </li>
+        	<li>
+        		<p><strong>发送: </strong>发送表单，电子邮件或请求。</p>
+        	 </li>
+        	<li>
+        		<p><strong>关闭: </strong>关闭当前对话框。</p>
+        	 </li>
+        	<li>
+        		<p><strong>更多: </strong>显示更多信息。</p>
+        	 </li>
+        	<li>
+        		<p><strong>打印: </strong>打印当前页面，选择或当前位置的项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>收件箱: </strong>打开收到的文件夹。</p>
+        	 </li>
+        	<li>
+        		<p><strong>发件箱: </strong>打开发送文件夹。</p>
+        	 </li>
+        	<li>
+        		<p><strong>编辑: </strong>打编辑当前项目，选择或当前位置的项目 转发到当前项目，如电子邮件。</p>
+        	 </li>
+        	<li>
+        		<p><strong>回复: </strong>回复当前项目，如电子邮件。</p>
+        	 </li>
+        	<li>
+        		<p><strong>上传: </strong>将文件上传到服务器。</p>
+        	 </li>
+        	<li>
+        		<p><strong>打开: </strong>打开新项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>新建: </strong>打开新项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>设置: </strong>打开设置和选项。</p>
+        	 </li>
+        	<li>
+        		<p><strong>模式: </strong>改变模式或功能。</p>
+        	 </li>
+        	<li>
+        		<p><strong>更高: </strong>改提高相关设置的水平。</p>
+        	 </li>
+        	<li>
+        		<p><strong>更低: </strong>改提高相关设置的水平。</p>
+        	 </li>
+        	<li>
+        		<p><strong>我的: </strong>打开用户的个人资料页面。</p>
+        	 </li>
+        	<li>
+        		<p><strong>展开: </strong>打展开或收起当前项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>刷新: </strong>手动刷新屏幕的当前内容。</p>
+        	 </li>
+        	<li>
+        		<p><strong>属性: </strong>手显示项目的属性。</p>
+        	 </li>
+        	<li>
+        		<p><strong>帮助: </strong>打开帮助功能。</p>
+        	 </li>
+        	<li>
+        		<p><strong>剪切: </strong>删除所选的控件，项目或文本，并将其放在剪贴板上。</p>
+        	 </li>
+        	<li>
+        		<p><strong>复制: </strong>将选定的控件，项目或文本复制到剪贴板上。</p>
+        	 </li>
+        	<li>
+        		<p><strong>颜色: </strong>打开一个颜色选择器。</p>
+        	 </li>
+        	<li>
+        		<p><strong>日期: </strong>打开日期控制。</p>
+        	 </li>
+        	<li>
+        		<p><strong>移除: </strong>从列表中删除一个项目。</p>
+        	 </li>
+        	<li>
+        		<p><strong>向右: </strong>将所选项目向右移动到另一列或列表。</p>
+        	 </li>
+        	<li>
+        		<p><strong>向左: </strong>将所选项目向左移动到另一列或列表。</p>
+        	 </li>
+                	
+        </ul>
+
+      </dd>
+
+      <dt class="label "> <a id="dfn-conventional-form-fields" name="dfn-conventional-form-fields"></a>常规/常用表单字段</dt>
+      <dd> 
+        <p>广泛认可的表格字段类型</p>
+        <p>以下表格字段类型被广泛认可</p>
+        <ul>
+        	<li>
+        		<p><strong>名称: </strong>全名。</p>
+        	 </li>
+        	<li>
+        		<p><strong>尊称: </strong>前缀或标题（Mr.，Mrs. Dr.等）。</p>
+        	 </li>
+        	<li>
+        		<p><strong>名: </strong>名字。</p>
+        	 </li>
+        	<li>
+        		<p><strong>别名: </strong>别名或中间名。</p>
+        	 </li>
+        	<li>
+        		<p><strong>别名首字母: </strong>别名或中间名首字母。</p>
+        	 </li>
+        	<li>
+        		<p><strong>姓: </strong>姓氏。</p>
+        	 </li>
+        	<li>
+        		<p><strong>敬语后缀: </strong>后缀（Jr.，II等）。</p>
+        	 </li>
+        	<li>
+        		<p><strong>昵称: </strong>昵称。</p>
+        	 </li>
+        	<li>
+        		<p><strong>街道地址: </strong>完整的街道地址的一行表示。</p>
+        	 </li>
+        	<li>
+        		<p><strong>地址栏1: </strong>街道地址的第一行。</p>
+        	 </li>
+        	<li>
+        		<p><strong>地址栏2: </strong>街道地址的第二行。</p>
+        	 </li>
+        	<li>
+        		<p><strong>地址栏3: </strong>将街道地址的第三行。</p>
+        	 </li>
+        	<li>
+        		<p><strong>城市或地区: </strong>城市或地区。</p>
+        	 </li>
+        	<li>
+        		<p><strong>区: </strong>行政区，州，省或地区。</p>
+        	 </li>
+        	<li>
+        		<p><strong>邮编: </strong>邮政编码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>国家: </strong>国家的名字。</p>
+        	 </li>
+        	<li>
+        		<p><strong>电子邮件: </strong>电子邮件地址。</p>
+        	 </li>
+        	<li>
+        		<p><strong>联系电话: </strong>打包括国家代码的电话号码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>TEL-国家代码: </strong>国际国码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>TEL-国家: </strong>打国家电话号码：全部数字减去国家代码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>电话区码: </strong>区号。</p>
+        	 </li>
+        	<li>
+        		<p><strong>电话-本地: </strong>本地电话号码：全数减去国家代码和区号。</p>
+        	 </li>
+        	<li>
+        		<p><strong>电话-分机: </strong>电话分机号码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>传真: </strong>打完整的传真号码，包括国家代码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>传真国家代码: </strong>国际国码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>FAX-国家: </strong>国家传真号码：全数减去国家代码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>传真区域代码: </strong>区号。</p>
+        	 </li>
+        	<li>
+        		<p><strong>传真-本地: </strong>本地传真号码：全数减去国家代码和区号。</p>
+        	 </li>
+        	<li>
+        		<p><strong>传真-分机: </strong>传真分机号码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>cc-名: </strong>全名，如信用卡上所示。</p>
+        	 </li>
+        	<li>
+        		<p><strong>cc-数: </strong>信用卡号。</p>
+        	 </li>
+        	<li>
+        		<p><strong>CC-EXP-月: </strong>信用卡到期月份。</p>
+        	 </li>
+        	<li>
+        		<p><strong>CC-EXP-年: </strong>信用卡到期年。</p>
+        	 </li>
+        	<li>
+        		<p><strong>CC-EXP: </strong>信用卡到期日。</p>
+        	 </li>
+        	<li>
+        		<p><strong>CC-CSC: </strong>信用卡安全码。</p>
+        	 </li>
+        	<li>
+        		<p><strong>BDAY: </strong>生日。</p>
+        	 </li>
+        	<li>
+        		<p><strong>BDAY-年: </strong>出生年。</p>
+        	 </li>
+        	<li>
+        		<p><strong>BDAY-月: </strong>打出生月。</p>
+        	 </li>
+        	<li>
+        		<p><strong>BDAY-日: </strong>出生日。</p>
+        	 </li>
+        	<li>
+        		<p><strong>话题: </strong>表格主题，通常从保留字列表中选择。</p>
+        	 </li>
+        	<li>
+        		<p><strong>评论: </strong>评论部分，通常是一个自由文本字段。</p>
+        	 </li>
+        	<li>
+        		<p><strong>主题: </strong>形式主题，通常是一个自由文本字段。</p>
+        	 </li>
+        	<li>
+        		<p><strong>回答: </strong>一个问题的回答。</p>
+        	 </li>
+        	<li>
+        		<p><strong>组织: </strong>公司或组织。</p>
+        	 </li>
+        	<li>
+        		<p><strong>组织头衔: </strong>用户在公司或组织内的职位或职称。</p>
+        	 </li>
+        	<li>
+        		<p><strong>自然性别: </strong>生理性别。</p>
+        	 </li>
+        	<li>
+        		<p><strong>社会性别: </strong>社会认可性别。</p>
+        	 </li>
+        	<li>
+        		<p><strong>网址: </strong>网址。</p>
+        	 </li>
+        	<li>
+        		<p><strong>照片: </strong>照片或头像。</p>
+        	 </li>
+        	<li>
+        		<p><strong>节-*****: </strong>用于组合表单。</p>
+        	 </li>
+                	
+        </ul>
+
+      </dd>
+
+      <dt class="label "> <a id="dfn-conventional-links" name="dfn-conventional-links"></a>常规/常用链接</dt>
+      <dd> 
+        <p>广泛认可的链接类型</p>
+        <p>以下链接类型被广泛认可：</p>
+        <ul>
+        	<li>
+        		<p><strong>主页: </strong>网站或应用程序的初始页面或主页面。</p>
+        	 </li>
+        	<li>
+        		<p><strong>联系我们: </strong>操作内容所有者或制作人的联系信息。</p>
+        	 </li>
+        	<li>
+        		<p><strong>我们的手机: </strong>电话联系内容所有者或制作人。</p>
+        	 </li>
+        	<li>
+        		<p><strong>我们的电邮: </strong>邮件联系内容所有者或制作人。</p>
+        	 </li>
+        	<li>
+        		<p><strong>网站地图: </strong>包含网站列表的内容。</p>
+        	 </li>
+        	<li>
+        		<p><strong>帮助: </strong>帮助功能、支持或说明。</p>
+        	 </li>
+        	<li>
+        		<p><strong>聊天帮助: </strong>人的帮助或对话帮助功能，如聊天机器人。</p>
+        	 </li>
+        	<li>
+        		<p><strong>关于我们: </strong>内容所有者或制作者的相关信息。</p>
+        	 </li>
+        	<li>
+        		<p><strong>条款: </strong>条款和条件。</p>
+        	 </li>
+        	<li>
+        		<p><strong>工具: </strong>用于当前内容的可用工具。</p>
+        	 </li>
+        	<li>
+        		<p><strong>服务: </strong>内容提供商提供的服务。</p>
+        	 </li>
+        	<li>
+        		<p><strong>产品: </strong>可从内容提供商获得的产品。</p>
+        	 </li>
+        	<li>
+        		<p><strong>评论: </strong>对当前项目发表评论。</p>
+        	 </li>
+        	<li>
+        		<p><strong>语言: </strong>行语言选项。</p>
+        	 </li>
+        	<li>
+        		<p><strong>登入: </strong>登录当前的网站或应用程序。</p>
+        	 </li>
+        	<li>
+        		<p><strong>登出: </strong>注销当前的网站或应用程序。</p>
+        	 </li>
+        	<li>
+        		<p><strong>注册: </strong>注册当前的网站或应用程序。</p>
+        	 </li>
+        	<li>
+        		<p><strong>社交: </strong>社交媒体上的内容提供商。</p>
+        	 </li>
+        	<li>
+        		<p><strong>发布: </strong>发布当前项目， 项目将对其他各方可见。</p>
+        	 </li>        	
+        </ul>
+      </dd>
+
+      <dt class="label "> <a id="dfn-device-sensorn" name="dfn-device-sensor"></a>设备传感器 </dt>
+      <dd> 
+        <p>设备组件，用于检测并响应物理环境中某些类型的输入</p>
+        <p>包移动设备上的示例是运动，方向和各种环境条件的测量。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-css-pixel" name="dfn-css-pixel"></a>CSS像素 </dt>
+      <dd> 
+        <p>视角约0.0213度</p>
+        <p>CSS像素是CSS中所有长度和测量的规范度量单位。 该单元与密度无关，与显示器中存在的实际硬件像素不同。 用户代理和操作系统应确保将CSS像素设置为尽可能接近CSS值和单位模块3级参考像素[css3-values]，其考虑了显示器的物理尺寸和假定的观看距离（ 内容作者无法确定的因素）。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-display-orientationl" name="dfn-display-orientationl"></a>显示位置 </dt>
+      <dd> 
+        <p>竖向或横向模式的显示</p>
+        <p>请参阅CSS设备适配模块级别1“方向”描述符[css-device-adapt-1]。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-easily-available" name="dfn-easily-available"></a>易于使用的（简易模式/简易设置）</dt>
+      <dd> 
+        <p>以下一项或更多为真:</p>
+         <ul>
+        	<li>
+        		<p>可以使用尽可能广泛的范围进行一次设置（例如使用ISO 9241-112 [[ISO_9241-112]]或GPII [GPII]时的操作系统标准）;</p>
+        	 </li>
+        	<li>
+        		<p><可以选择保存或更改设置，在可互操作的情况下，还可以在一组网页的范围内;</p>
+        	 </li>
+        	<li>
+        		<p>从可能需要的每个屏幕可以访问，并且路径和控制符合所有这些文档。</p>
+        	 </li>
+        </ul>
+      </dd>
+
+      <dt class="label "> <a id="dfn-essential" name="dfn-essential"></a>必要的/必需</dt>
+      <dd> 
+        <p>如果删除，将从根本上改变内容的信息或功能，并且不能以符合的另一种方式实现信息和功能</p>
+        <p>特定内容呈现的示例对于正在传达的信息至关重要：</p>
+         <ul>
+        	<li>
+        		<p>支票存款必须在一定方向的银行网站;</p>
+        	 </li>
+        	<li>
+        		<p>钢琴应用在横向模式;</p>
+        	 </li>
+        	<li>
+        		<p>不支持显示方向更改的应用和设备的内容，如幻灯片演示到投影机和电视机;</p>
+        	 </li>
+        	<li>
+        		<p>虚拟现实和增强现实内容，其中横向和竖向显示方向通常不适用于二进制方式。</p>
+        	 </li>
+        </ul>
+      </dd>
+
+      <dt class="label "> <a id="dfn-keyboard-shortcut" name="dfn-keyboard-shortcut"></a>键盘快捷键 </dt>
+      <dd> 
+        <p>通过按压一个或多个键来触发动作的替代方式</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-pointer-input" name="dfn-pointer-input"></a>输入指针 </dt>
+      <dd> 
+        <p>输入设备，可以在屏幕上定位特定坐标（或坐标系），例如鼠标，笔或触摸触点</p>
+        <p>另请参见指针事件2级指针定义[pointerevents2]。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-primary-purpose-of-the-page" name="dfn-primary-purpose-of-the-pag"></a>网页的主要内容 </dt>
+      <dd> 
+        <p>如果删除，页面将失去其现有的意义或主要原因</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-single-pointer-activation" name="dfn-single-pointer-activation"></a>单指针激活 </dt>
+      <dd> 
+        <p>与屏幕的一个接触点</p>
+        <p>这与多点触控相反。 指针可以是由鼠标光标，笔，触摸（包括多点触摸）或其他指示输入设备制成的屏幕上的任何接触点。 这种模式使得无论用户拥有什么硬件，都能轻松编写能够正常工作的站点和应用程序。 对于需要设备特定处理的情况，指针事件[pointerevents]规范也定义了检查的属性。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-style-properties" name="dfn-style-properties"></a>风格属性</dt>
+      <dd> 
+        <p>其值通过用户代理确定内容元素呈现的呈现（例如字体，颜色，大小，位置，填充，音量，合成语音韵律）的属性（例如屏幕上，通过扬声器，经由盲文显示）</p>
+        <p>样式属性可以有几个起源：</p>
+         <ul>
+        	<li>
+        		<p>用户代理默认样式：在缺少任何作者或用户样式的情况下应用的默认样式属性值。 一些Web内容技术指定默认呈现; 其他没有;</p>
+        	 </li>
+        	<li>
+        		<p>作者样式：作者作为内容的一部分设置的样式属性值（例如，在线样式，作者样式表）;</p>
+        	 </li>
+        	<li>
+        		<p>用户样式：用户设置的样式属性值（例如，通过用户代理界面设置，用户样式表）。</p>
+        	 </li>
+        </ul>
+      </dd>
+
+      <dt class="label "> <a id="dfn-target" name="dfn-target"></a>目标 </dt>
+      <dd> 
+        <p>接受触摸操作的显示区域</p>
+        <p>如果触摸目标的不执行相同动作或转到同一页面的部分被另一个触摸目标重叠，使得它不能接收到触摸动作，则该部分不被认为是用于触摸目标测量的触摸目标。</p>
+      </dd>
+
+      <dt class="label "> <a id="dfn-up-event" name="dfn-up-event"></a>上事件/移开事件/释放事件 </dt>
+      <dd> 
+        <p>当释放触发器激励时激活组件</p>
+        <p>在不同的平台上，“up-event”可能被称为不同的东西，例如“touchend”或“mouseup”。</p>
+        <p>示例：对于触摸屏交互，当在水龙头结束时从触摸屏抬起手指时触发事件。</p>
+      </dd>
+  	</div>
+    </dl>
+    </div>
+  </div>
+</body>
+</html>
