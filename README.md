@@ -1,1 +1,5 @@
-# WCAG21-Chinese-Unoffical-Translation
+# WCAG 2.1非正式中文翻译工作稿
+
+该翻译版本为Web内容无障碍指南（WCAG）2.1工作稿的非正式翻译版本，由于WCAG 2.1是对WCAG 2.0的延伸开发，其中包含了所有WCAG2.0原有的准则和成功标准，为了区分新增加的准则和成功标准，在该工作稿中用绿色方框标注了新增加的准则和成功标准，该版本并非WCAG 2.1最终的发布版本，目前工作组仍在对新的成功标准进行评估和审查，所以该版本并非稳定的版本，具体的变动将会跟随英文版本的更新而更新。
+网页地址为：https://w3c.github.io/WCAG21-Chinese-Unoffical-Translation/
+
